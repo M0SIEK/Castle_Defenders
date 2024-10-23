@@ -22,16 +22,18 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
 
     private Direction direction;
+    private Vector3 currentPosition;
     void Start()
     {
         this.transform.position = startPoint.transform.position;
+        currentPosition = startPoint.transform.position;
         //ustawienie kierunku poruszania sie
         SetDirection();
-        Debug.Log("Enemy created");
+        //Debug.Log("Enemy created");
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //przemieszczenie sie przeciwnika
         MoveOnPath();
@@ -39,21 +41,26 @@ public class EnemyController : MonoBehaviour
 
     void SetDirection()
     {
-        if (nextTarget.transform.position.x > this.transform.position.x && (int)(Math.Abs(nextTarget.transform.position.y) - Math.Abs(this.transform.position.y)) == 0)
+        Debug.Log("Current position" + (currentPosition).ToString());
+        Debug.Log("Next position" + (nextTarget.transform.position).ToString());
+        if (nextTarget.transform.position.x > currentPosition.x && (int)(Math.Abs(nextTarget.transform.position.y) - Math.Abs(currentPosition.y)) == 0)
         {
             direction = Direction.right;
         }
-        else if(nextTarget.transform.position.x < this.transform.position.x && (int)(Math.Abs(nextTarget.transform.position.y) - Math.Abs(this.transform.position.y)) == 0)
+        else if(nextTarget.transform.position.x < currentPosition.x && (int)(Math.Abs(nextTarget.transform.position.y) - Math.Abs(currentPosition.y)) == 0)
         {
             direction = Direction.left;
         }
-        else if (nextTarget.transform.position.y < this.transform.position.y && (int)(Math.Abs(nextTarget.transform.position.x) - Math.Abs(this.transform.position.x)) == 0)
+        else if (nextTarget.transform.position.y < currentPosition.y && (int)(Math.Abs(nextTarget.transform.position.x) - Math.Abs(currentPosition.x)) == 0)
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.transform.position.y > this.transform.position.y && (int)(Math.Abs(nextTarget.transform.position.x) - Math.Abs(this.transform.position.x)) == 0)
+        else if (nextTarget.transform.position.y > currentPosition.y && (int)(Math.Abs(nextTarget.transform.position.x) - Math.Abs(currentPosition.x)) == 0)
         {
-            direction = Direction.bottom;
+            direction = Direction.top;
+        } else
+        {
+            Debug.Log("Else");
         }
     }
 
@@ -83,8 +90,12 @@ public class EnemyController : MonoBehaviour
         if(nextPathTarget != null)
         {
             Debug.Log("TargetReached!");
+            currentPosition = nextPathTarget.transform.position == nextTarget.transform.position ? currentPosition : nextTarget.transform.position;
             nextTarget = nextPathTarget;
             SetDirection();
+        } else
+        {
+            Destroy(this.gameObject);
         }
     }
 }
