@@ -276,6 +276,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718257699156318871, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
   m_PrefabInstance: {fileID: 573065886}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &651726711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3793852620776617638, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
+  m_PrefabInstance: {fileID: 4089986020787217943}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &893578193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -524,6 +529,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718257699156318871, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
   m_PrefabInstance: {fileID: 1440623453}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1684240153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3793852620776617638, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
+  m_PrefabInstance: {fileID: 1440623453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2026264148
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,8 +691,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 100
-  speed: 1
-  nextTarget: {fileID: 0}
+  speed: 0.02
+  startPoint: {fileID: 1684240153}
+  nextTarget: {fileID: 651726711}
 --- !u!1001 &4089986020787217943
 PrefabInstance:
   m_ObjectHideFlags: 0
