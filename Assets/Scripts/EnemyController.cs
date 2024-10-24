@@ -16,6 +16,7 @@ enum Direction
 public class EnemyController : MonoBehaviour
 {
     public int hitPoints = 100;
+    public int maxHitPoints = 100;
     public float speed = 0.02f;
     public GameObject startPoint;
     public GameObject nextTarget;
