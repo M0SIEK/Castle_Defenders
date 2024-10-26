@@ -39,10 +39,9 @@ public class EnemyController : MonoBehaviour
         //ustawienie kierunku poruszania sie
         SetDirection();
 
-        InvokeRepeating("OnDamage", 4f, 4f);
+        InvokeRepeating("OnDamage", 4f, 4f); //tylko do testowania
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         //przemieszczenie sie przeciwnika jezeli zyje
@@ -66,10 +65,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
     public void OnDamage()
     {
         Debug.Log("Damage Taken");
-        int damage = 40;
+        float damage = 40f;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         animator.SetTrigger("injured");
@@ -80,23 +80,35 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //wlasciwa metoda OnDamage(float) do obslugi otrzymania obrazen
+    public void OnDamage(float damage)
+    {
+        Debug.Log("Damage Taken");
+        hitPoints -= damage;
+        hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
+        animator.SetTrigger("injured");
+        if (hitPoints <= 0)
+        {
+            isDead = true;
+            animator.SetTrigger("dead");
+        }
+    }
+
     private void SetDirection()
     {
-        //Debug.Log("Current position" + (currentPosition).ToString());
-        //Debug.Log("Next position" + (nextTarget.transform.position).ToString());
-        if (nextTarget.transform.position.x > currentPosition.x && Math.Abs(nextTarget.transform.position.y) - Math.Abs(currentPosition.y) == 0)
+        if (nextTarget.transform.position.x > currentPosition.x && nextTarget.transform.position.y == currentPosition.y)
         {
             direction = Direction.right;
         }
-        else if (nextTarget.transform.position.x < currentPosition.x && Math.Abs(nextTarget.transform.position.y) - Math.Abs(currentPosition.y) == 0)
+        else if (nextTarget.transform.position.x < currentPosition.x && nextTarget.transform.position.y == currentPosition.y)
         {
             direction = Direction.left;
         }
-        else if (nextTarget.transform.position.y < currentPosition.y && Math.Abs(nextTarget.transform.position.x) - Math.Abs(currentPosition.x) == 0)
+        else if (nextTarget.transform.position.y < currentPosition.y && nextTarget.transform.position.x == currentPosition.x)
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.transform.position.y > currentPosition.y && Math.Abs(nextTarget.transform.position.x) - Math.Abs(currentPosition.x) == 0)
+        else if (nextTarget.transform.position.y > currentPosition.y && nextTarget.transform.position.x == currentPosition.x)  
         {
             direction = Direction.top;
         }
