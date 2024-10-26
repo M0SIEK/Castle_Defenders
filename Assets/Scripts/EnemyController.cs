@@ -22,24 +22,34 @@ public class EnemyController : MonoBehaviour
     public GameObject startPoint;
     public GameObject nextTarget;
     public HitPointsBarController hitPointsBarController;
+    public Animator animator;
 
     private Direction direction;
     private Vector3 currentPosition;
+    private bool isDead = false;
     void Start()
     {
+        hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
+        animator = GetComponent<Animator>();
+
+        hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         this.transform.position = startPoint.transform.position;
         currentPosition = startPoint.transform.position;
+
         //ustawienie kierunku poruszania sie
         SetDirection();
+
         InvokeRepeating("OnDamage", 4f, 4f);
-        hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //przemieszczenie sie przeciwnika
-        MoveOnPath();
+        //przemieszczenie sie przeciwnika jezeli zyje
+        if (!isDead)
+        { 
+            MoveOnPath();
+        }
     }
 
     public void OnTargetReached(GameObject nextPathTarget)
@@ -62,9 +72,11 @@ public class EnemyController : MonoBehaviour
         int damage = 40;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
+        animator.SetTrigger("injured");
         if(hitPoints <= 0)
         {
-            Dead();
+            isDead = true;
+            animator.SetTrigger("dead");
         }
     }
 
