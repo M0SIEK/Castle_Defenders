@@ -16,12 +16,12 @@ enum Direction
 public class EnemyController : MonoBehaviour
 {
     public int level = 1;
-    public int hitPoints = 100;
-    public int maxHitPoints = 100;
+    public float hitPoints = 100f;
+    public float maxHitPoints = 100f;
     public float speed = 0.02f;
     public GameObject startPoint;
     public GameObject nextTarget;
-    // Start is called before the first frame update
+    public HitPointsBarController hitPointsBarController;
 
     private Direction direction;
     private Vector3 currentPosition;
@@ -31,6 +31,8 @@ public class EnemyController : MonoBehaviour
         currentPosition = startPoint.transform.position;
         //ustawienie kierunku poruszania sie
         SetDirection();
+        InvokeRepeating("OnDamage", 4f, 4f);
+        hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
     }
 
     // Update is called once per frame
@@ -57,6 +59,13 @@ public class EnemyController : MonoBehaviour
     public void OnDamage()
     {
         Debug.Log("Damage Taken");
+        int damage = 40;
+        hitPoints -= damage;
+        hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
+        if(hitPoints <= 0)
+        {
+            Dead();
+        }
     }
 
     private void SetDirection()
@@ -104,7 +113,7 @@ public class EnemyController : MonoBehaviour
 
     private void Dead()
     {
-
+        Destroy(this.gameObject);
     }
 
     private void Passed()
