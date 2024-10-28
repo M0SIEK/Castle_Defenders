@@ -39,7 +39,7 @@ public class EnemyController : MonoBehaviour
         //ustawienie kierunku poruszania sie
         SetDirection();
 
-        //InvokeRepeating("OnDamage", 4f, 4f); //tylko do testowania
+        InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
 
     void FixedUpdate()
