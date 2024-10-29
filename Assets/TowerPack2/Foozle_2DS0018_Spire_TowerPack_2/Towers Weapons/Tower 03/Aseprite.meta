@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 481e91e41d0b2df4a9854da0e6d1e73c
+=======
 guid: b00a04097ecc18149b3f4c4f4058f862
+>>>>>>> feature/tower
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

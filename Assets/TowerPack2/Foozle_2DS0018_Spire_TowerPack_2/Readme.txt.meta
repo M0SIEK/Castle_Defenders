@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 85e51af6193a631449b8b265a9d86f9d
+=======
 guid: 5e42b001073e7a04eb9cca959a93c491
+>>>>>>> feature/tower
 TextScriptImporter:
   externalObjects: {}
   userData: 
