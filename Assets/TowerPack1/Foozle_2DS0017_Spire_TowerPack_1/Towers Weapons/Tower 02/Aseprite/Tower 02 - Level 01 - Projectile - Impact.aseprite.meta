@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: d7e00b237710ba04e8b1af692bd17390
+=======
+guid: 35fdc47add514744abfdf82e0f7e86fd
+>>>>>>> feature/tower
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -132,7 +136,11 @@ ScriptedImporter:
       y: 53
       width: 22
       height: 8
+<<<<<<< HEAD
     spriteID: c95ed749ec9e42b48b9f3f77a2e24407
+=======
+    spriteID: bc335fcb1eaa205428ac54d57922e6c5
+>>>>>>> feature/tower
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -152,7 +160,11 @@ ScriptedImporter:
       y: 29
       width: 29
       height: 16
+<<<<<<< HEAD
     spriteID: 0523866a8a96c7a489636eae6c0faf23
+=======
+    spriteID: ad4c881e52077be459c3d30e1d64d9cc
+>>>>>>> feature/tower
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -172,7 +184,11 @@ ScriptedImporter:
       y: 4
       width: 32
       height: 17
+<<<<<<< HEAD
     spriteID: 0ab295b209b99ed4d9f02123b50ccdb5
+=======
+    spriteID: fe5a2e195718b5d47b2319e19faee4a9
+>>>>>>> feature/tower
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -192,7 +208,11 @@ ScriptedImporter:
       y: 69
       width: 33
       height: 5
+<<<<<<< HEAD
     spriteID: 78aa7d6cc8fa45645b5dea654d2dd438
+=======
+    spriteID: c74b937c6d9e6824bbb3325769458ee5
+>>>>>>> feature/tower
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -218,7 +238,11 @@ ScriptedImporter:
         y: 26
         width: 22
         height: 8
+<<<<<<< HEAD
       spriteId: c95ed749ec9e42b48b9f3f77a2e24407
+=======
+      spriteId: bc335fcb1eaa205428ac54d57922e6c5
+>>>>>>> feature/tower
     - name: Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -227,7 +251,11 @@ ScriptedImporter:
         y: 19
         width: 29
         height: 16
+<<<<<<< HEAD
       spriteId: 0523866a8a96c7a489636eae6c0faf23
+=======
+      spriteId: ad4c881e52077be459c3d30e1d64d9cc
+>>>>>>> feature/tower
     - name: Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -236,7 +264,11 @@ ScriptedImporter:
         y: 18
         width: 32
         height: 17
+<<<<<<< HEAD
       spriteId: 0ab295b209b99ed4d9f02123b50ccdb5
+=======
+      spriteId: fe5a2e195718b5d47b2319e19faee4a9
+>>>>>>> feature/tower
     - name: Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -245,7 +277,11 @@ ScriptedImporter:
         y: 30
         width: 33
         height: 5
+<<<<<<< HEAD
       spriteId: 78aa7d6cc8fa45645b5dea654d2dd438
+=======
+      spriteId: c74b937c6d9e6824bbb3325769458ee5
+>>>>>>> feature/tower
     linkedCells: []
     parentIndex: -1
   platformSettings:
