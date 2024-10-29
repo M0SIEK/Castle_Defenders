@@ -12,6 +12,18 @@ public class TowerSelectionMenu : MonoBehaviour
     public GameObject tower2Prefab;
     public GameObject tower3Prefab;
 
+    public void Open_Close(EmptyField field)
+    {
+        if (menuPanel.activeSelf)
+        {
+            Close(); // Jeœli panel jest otwarty, zamknij go
+        }
+        else
+        {
+            Open(field); // Jeœli panel jest zamkniêty, otwórz go
+        }
+    }
+
     public void Open(EmptyField field)
     {
         selectedField = field;
@@ -19,7 +31,22 @@ public class TowerSelectionMenu : MonoBehaviour
 
         // Ustawienie pozycji panelu nad klikniêtym polem w przestrzeni ekranu
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(field.transform.position);
-        screenPosition.y += 60; // Dostosuj wysokoœæ, aby panel by³ nad polem w pikselach
+        screenPosition.y += 60; // Dostosowanie wysokoœci, aby panel by³ nad polem
+
+        RectTransform menuRectTransform = menuPanel.GetComponent<RectTransform>();
+        float menuHeight = menuRectTransform.rect.height;
+        float menuWidth = menuRectTransform.rect.width;
+
+        // Sprawdzenie, czy panel wychodzi poza górn¹ krawêdŸ ekranu
+        if (screenPosition.y + menuHeight > Screen.height)
+        {
+            // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod polem
+            screenPosition.y = Camera.main.WorldToScreenPoint(field.transform.position).y - (menuHeight + 5);
+        }
+
+        // Ograniczenie pozycji panelu do krawêdzi ekranu
+        screenPosition.x = Mathf.Clamp(screenPosition.x, menuWidth / 2, Screen.width - menuWidth / 2);
+
         menuPanel.transform.position = screenPosition;
     }
 
@@ -47,21 +74,16 @@ public class TowerSelectionMenu : MonoBehaviour
                 break;
         }
 
-        Debug.Log("Wybrano wie¿ê o indeksie: " + towerIndex);
-        Debug.Log("Wybrany prefabrykat wie¿y: " + (selectedTower != null ? selectedTower.name : "brak"));
-
         // Tworzenie wie¿y na wybranym polu
         if (selectedTower != null && selectedField != null)
         {
-            Instantiate(selectedTower, selectedField.transform.position, Quaternion.identity);
+            // Ustawienie wie¿y na pole z odpowiedni¹ wysokoœci¹
+            Vector3 towerPosition = selectedField.transform.position;
+            towerPosition.y -= 0.5f; // Ustawienie odpowiedniej wysokoœci
+            Instantiate(selectedTower, towerPosition, Quaternion.identity);
+
             selectedField.gameObject.SetActive(false); // Ukryj pole po postawieniu wie¿y
-            Debug.Log("Wie¿a zosta³a postawiona na polu: " + selectedField.name);
             Close(); // Zamknij panel po wybraniu wie¿y
-        }
-        else
-        {
-            Debug.LogWarning("Nie uda³o siê postawiæ wie¿y. Brak wybranej wie¿y lub pola.");
         }
     }
 }
-

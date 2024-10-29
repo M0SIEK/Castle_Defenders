@@ -8,7 +8,7 @@ public class EmptyField : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Otwórz menu wyboru wie¿y
-        towerSelectionMenu.Open(this);
+        // Prze³¹czanie stanu menu wyboru wie¿y
+        towerSelectionMenu.Open_Close(this);
     }
 }
