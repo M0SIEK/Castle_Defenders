@@ -17,10 +17,10 @@ public class TowerSelectionMenu : MonoBehaviour
         selectedField = field;
         menuPanel.SetActive(true);
 
-        // Ustawienie pozycji panelu nad klikniêtym polem
-        Vector3 newPosition = field.transform.position;
-        newPosition.y += 1.5f; // Dostosuj wysokoœæ, aby panel by³ nad polem
-        menuPanel.transform.position = newPosition; // Ustawienie pozycji
+        // Ustawienie pozycji panelu nad klikniêtym polem w przestrzeni ekranu
+        Vector3 screenPosition = Camera.main.WorldToScreenPoint(field.transform.position);
+        screenPosition.y += 60; // Dostosuj wysokoœæ, aby panel by³ nad polem w pikselach
+        menuPanel.transform.position = screenPosition;
     }
 
     public void Close()
@@ -47,12 +47,21 @@ public class TowerSelectionMenu : MonoBehaviour
                 break;
         }
 
+        Debug.Log("Wybrano wie¿ê o indeksie: " + towerIndex);
+        Debug.Log("Wybrany prefabrykat wie¿y: " + (selectedTower != null ? selectedTower.name : "brak"));
+
         // Tworzenie wie¿y na wybranym polu
         if (selectedTower != null && selectedField != null)
         {
             Instantiate(selectedTower, selectedField.transform.position, Quaternion.identity);
             selectedField.gameObject.SetActive(false); // Ukryj pole po postawieniu wie¿y
+            Debug.Log("Wie¿a zosta³a postawiona na polu: " + selectedField.name);
             Close(); // Zamknij panel po wybraniu wie¿y
+        }
+        else
+        {
+            Debug.LogWarning("Nie uda³o siê postawiæ wie¿y. Brak wybranej wie¿y lub pola.");
         }
     }
 }
+
