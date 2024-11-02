@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1174663736725323607}
   - component: {fileID: 593112369108393093}
   m_Layer: 6
-  m_Name: Skeleton
+  m_Name: Skeleton_lvl_1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   level: 1
   hitPoints: 100
   maxHitPoints: 100
-  speed: 0.04
+  speed: 0.02
   startPoint: {fileID: 0}
   nextTarget: {fileID: 0}
   hitPointsBarController: {fileID: 0}
