@@ -5,7 +5,7 @@ using UnityEngine;
 public class PathController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject nextTarget = null;
+    public Transform nextTarget = null;
     void Start()
     {
         

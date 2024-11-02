@@ -18,8 +18,8 @@ public class EnemyController : MonoBehaviour
     public float hitPoints = 100f;
     public float maxHitPoints = 100f;
     public float speed = 0.02f;
-    public GameObject startPoint;
-    public GameObject nextTarget;
+    public Transform startPoint;
+    public Transform nextTarget;
     public HitPointsBarController hitPointsBarController;
     public Animator animator;
 
@@ -33,8 +33,8 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
-        this.transform.position = startPoint.transform.position;
-        currentPosition = startPoint.transform.position;
+        this.transform.position = startPoint.position;
+        currentPosition = startPoint.position;
         currentDirection = Direction.right;
 
         //ustawienie kierunku poruszania sie
@@ -52,12 +52,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void OnTargetReached(GameObject nextPathTarget)
+    public void OnTargetReached(Transform nextPathTarget)
     {
         if(nextPathTarget != null)
         {
-            Debug.Log("TargetReached!");
-            currentPosition = nextPathTarget.transform.position == nextTarget.transform.position ? currentPosition : nextTarget.transform.position;
+            currentPosition = nextPathTarget.position == nextTarget.position ? currentPosition : nextTarget.position;
             nextTarget = nextPathTarget;
             SetDirection();
         } else
@@ -69,7 +68,6 @@ public class EnemyController : MonoBehaviour
     //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
     public void OnDamage()
     {
-        Debug.Log("Damage Taken");
         float damage = 40f;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
@@ -97,19 +95,19 @@ public class EnemyController : MonoBehaviour
 
     private void SetDirection()
     {
-        if (nextTarget.transform.position.x > currentPosition.x && nextTarget.transform.position.y == currentPosition.y)
+        if (nextTarget.position.x > currentPosition.x && nextTarget.position.y == currentPosition.y)
         {
             direction = Direction.right;
         }
-        else if (nextTarget.transform.position.x < currentPosition.x && nextTarget.transform.position.y == currentPosition.y)
+        else if (nextTarget.position.x < currentPosition.x && nextTarget.position.y == currentPosition.y)
         {
             direction = Direction.left;
         }
-        else if (nextTarget.transform.position.y < currentPosition.y && nextTarget.transform.position.x == currentPosition.x)
+        else if (nextTarget.position.y < currentPosition.y && nextTarget.position.x == currentPosition.x)
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.transform.position.y > currentPosition.y && nextTarget.transform.position.x == currentPosition.x)  
+        else if (nextTarget.position.y > currentPosition.y && nextTarget.position.x == currentPosition.x)  
         {
             direction = Direction.top;
         }
