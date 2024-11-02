@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 8018991287529876729, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
       propertyPath: nextTarget
       value: 
-      objectReference: {fileID: 651726711}
+      objectReference: {fileID: 1684240153}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1739,26 +1739,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin_lvl_1
       objectReference: {fileID: 0}
-    - target: {fileID: 115634939147391791, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 115634939147391791, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899792187667909346, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532868742078059036, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4005384971033918109, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4490071968390293659, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
       propertyPath: nextTarget
       value: 
@@ -1767,10 +1747,6 @@ PrefabInstance:
       propertyPath: startPoint
       value: 
       objectReference: {fileID: 341471447}
-    - target: {fileID: 5219528785760803644, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5925455390172140656, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1779,9 +1755,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8148892778372712140, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 8471002658203388474, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.352499
+      objectReference: {fileID: 0}
+    - target: {fileID: 8471002658203388474, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.352499
       objectReference: {fileID: 0}
     - target: {fileID: 8471002658203388474, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1822,10 +1802,6 @@ PrefabInstance:
     - target: {fileID: 8471002658203388474, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8852785665424463266, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

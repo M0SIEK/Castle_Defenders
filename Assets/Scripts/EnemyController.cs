@@ -15,7 +15,6 @@ enum Direction
 
 public class EnemyController : MonoBehaviour
 {
-    public int level = 1;
     public float hitPoints = 100f;
     public float maxHitPoints = 100f;
     public float speed = 0.02f;
@@ -25,6 +24,7 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
 
     private Direction direction;
+    private Direction currentDirection;
     private Vector3 currentPosition;
     private bool isDead = false;
     void Start()
@@ -35,6 +35,7 @@ public class EnemyController : MonoBehaviour
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         this.transform.position = startPoint.transform.position;
         currentPosition = startPoint.transform.position;
+        currentDirection = Direction.right;
 
         //ustawienie kierunku poruszania sie
         SetDirection();
@@ -111,6 +112,14 @@ public class EnemyController : MonoBehaviour
         else if (nextTarget.transform.position.y > currentPosition.y && nextTarget.transform.position.x == currentPosition.x)  
         {
             direction = Direction.top;
+        }
+        
+        //odbicie postaci w osi X gdy zmieniany jest kierunek na przeciwny
+        if(currentDirection == Direction.left && direction == Direction.right || currentDirection == Direction.right && direction == Direction.left)
+        {
+            Vector3 newScale = new Vector3(this.transform.localScale.x * (-1), this.transform.localScale.y, this.transform.localScale.z);
+            this.transform.localScale = newScale;
+            this.currentDirection = direction;
         }
     }
 
