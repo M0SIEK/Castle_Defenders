@@ -77,10 +77,16 @@ public class TowerSelectionMenu : MonoBehaviour
         // Tworzenie wie¿y na wybranym polu
         if (selectedTower != null && selectedField != null)
         {
-            // Ustawienie wie¿y na pole z odpowiedni¹ wysokoœci¹
             Vector3 towerPosition = selectedField.transform.position;
             towerPosition.y -= 0.5f; // Ustawienie odpowiedniej wysokoœci
-            Instantiate(selectedTower, towerPosition, Quaternion.identity);
+            GameObject towerInstance = Instantiate(selectedTower, towerPosition, Quaternion.identity);
+
+            // Przypisanie pola do nowo utworzonej wie¿y
+            Tower towerScript = towerInstance.GetComponent<Tower>();
+            if (towerScript != null)
+            {
+                towerScript.SetOriginalField(selectedField);
+            }
 
             selectedField.gameObject.SetActive(false); // Ukryj pole po postawieniu wie¿y
             Close(); // Zamknij panel po wybraniu wie¿y
