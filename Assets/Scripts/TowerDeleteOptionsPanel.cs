@@ -2,31 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerOptionsPanel : MonoBehaviour
+public class TowerDeleteOptionsPanel : MonoBehaviour
 {
-    public GameObject optionsPanel; // Panel z przyciskami "Upgrade" i "Delete"
+    public GameObject deleteOptionsPanel; // Panel z opcj¹ usuniêcia wie¿y na poziomie 3
     private Tower selectedTower; // Aktualnie wybrana wie¿a
 
-    // Otwieranie panelu opcji dla wybranej wie¿y
+    // Otwieranie panelu opcji dla wie¿y poziomu 3
     public void Open(Tower tower)
     {
-        if (selectedTower == tower && optionsPanel.activeSelf)
+        if (selectedTower == tower && deleteOptionsPanel.activeSelf)
         {
             Close(); // Jeœli klikniêto na tê sam¹ wie¿ê, zamknij panel
             return;
         }
 
         selectedTower = tower;
-        optionsPanel.SetActive(true);
+        deleteOptionsPanel.SetActive(true);
 
         // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
         screenPosition.y += 95; // Dostosowanie wysokoœci panelu
 
         // Pobierz rozmiary panelu
-        RectTransform optionsRectTransform = optionsPanel.GetComponent<RectTransform>();
-        float panelHeight = optionsRectTransform.rect.height;
-        float panelWidth = optionsRectTransform.rect.width;
+        RectTransform panelDeleteRectTransform = deleteOptionsPanel.GetComponent<RectTransform>();
+        float panelHeight = panelDeleteRectTransform.rect.height;
+        float panelWidth = panelDeleteRectTransform.rect.width;
 
         // Sprawdzenie, czy panel wychodzi poza górn¹ krawêdŸ ekranu
         if (screenPosition.y + panelHeight > Screen.height)
@@ -39,13 +39,13 @@ public class TowerOptionsPanel : MonoBehaviour
         screenPosition.x = Mathf.Clamp(screenPosition.x, panelWidth / 2, Screen.width - panelWidth / 2);
 
         // Ustaw finaln¹ pozycjê panelu
-        optionsPanel.transform.position = screenPosition;
+        deleteOptionsPanel.transform.position = screenPosition;
     }
 
     // Zamkniêcie panelu opcji
     public void Close()
     {
-        optionsPanel.SetActive(false);
+        deleteOptionsPanel.SetActive(false);
         selectedTower = null;
     }
 
@@ -55,15 +55,6 @@ public class TowerOptionsPanel : MonoBehaviour
         if (selectedTower != null)
         {
             selectedTower.DeleteTower();
-        }
-    }
-
-    // Funkcja wywo³ywana przez przycisk "Upgrade"
-    public void UpgradeTower()
-    {
-        if (selectedTower != null)
-        {
-            selectedTower.UpgradeTower();
         }
     }
 }
