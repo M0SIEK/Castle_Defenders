@@ -3,16 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - GUI
+  - 
   - Water
   - UI
-  - Map
+  - 
   - 
   - 
   - 
@@ -41,13 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: GUI
-    uniqueID: 95149457
-    locked: 0
-  - name: Postacie
-    uniqueID: 1000308543
-    locked: 0
-  - name: Mapa
-    uniqueID: 592170871
     locked: 0
