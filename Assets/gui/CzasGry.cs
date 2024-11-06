@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameTime : MonoBehaviour
+public class CzasGry : MonoBehaviour
 {
     public float timeRemaining = 0;
     public bool timeIsRunning = true;
