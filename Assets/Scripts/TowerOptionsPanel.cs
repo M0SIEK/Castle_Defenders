@@ -21,7 +21,7 @@ public class TowerOptionsPanel : MonoBehaviour
 
         // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
-        screenPosition.y += 98; // Dostosowanie wysokoœci panelu
+        screenPosition.y += 100; // Dostosowanie wysokoœci panelu
 
         // Pobierz rozmiary panelu
         RectTransform optionsRectTransform = optionsPanel.GetComponent<RectTransform>();
