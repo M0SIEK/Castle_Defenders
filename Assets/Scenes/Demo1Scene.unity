@@ -2415,6 +2415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerDeletePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6073264744709658584, guid: ec106e85c3fa77847a295842f40a6802, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6208108671810166708, guid: ec106e85c3fa77847a295842f40a6802, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2681,6 +2685,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1296915659625239499, guid: f7f0605a4f03e9347bf7894c6bf862fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092297372424996716, guid: f7f0605a4f03e9347bf7894c6bf862fa, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8709697624065024559, guid: f7f0605a4f03e9347bf7894c6bf862fa, type: 3}
