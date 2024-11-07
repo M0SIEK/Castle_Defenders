@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Demo1Scene.unity.meta
+guid: e09ca9ca09416434398944e4cf64a183
+========
+guid: 43938c1705885874d998cf6fe397e1aa
+>>>>>>>> feature/gui:Assets/GUIfixed.unity.meta
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

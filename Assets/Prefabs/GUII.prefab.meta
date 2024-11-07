@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Towers/Tower 1 - level 1.prefab.meta
+guid: 6fcc95a4d5c283846a12262c656654c7
+========
+guid: 8cab2024010441949b7bf57f956f227d
+>>>>>>>> feature/gui:Assets/GUII.prefab.meta
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
