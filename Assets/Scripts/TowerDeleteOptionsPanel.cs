@@ -7,6 +7,9 @@ public class TowerDeleteOptionsPanel : MonoBehaviour
     public GameObject deleteOptionsPanel; // Panel z opcj¹ usuniêcia wie¿y na poziomie 3
     private Tower selectedTower; // Aktualnie wybrana wie¿a
 
+    public float focusedHeightOffset = 100f; // Wysokoœæ panelu w trybie Play Focused
+    public float maximizedHeightOffset = 150f; // Wysokoœæ panelu w trybie Play Maximized
+
     // Otwieranie panelu opcji dla wie¿y poziomu 3
     public void Open(Tower tower)
     {
@@ -19,9 +22,12 @@ public class TowerDeleteOptionsPanel : MonoBehaviour
         selectedTower = tower;
         deleteOptionsPanel.SetActive(true);
 
+        // Ustal wysokoœæ offsetu na podstawie trybu wyœwietlania
+        float heightOffset = (Screen.width > 1000 && Screen.height > 600) ? maximizedHeightOffset : focusedHeightOffset;
+
         // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
-        screenPosition.y += 100; // Dostosowanie wysokoœci panelu
+        screenPosition.y += heightOffset; // Dostosowanie wysokoœci panelu
 
         // Pobierz rozmiary panelu
         RectTransform panelDeleteRectTransform = deleteOptionsPanel.GetComponent<RectTransform>();

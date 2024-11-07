@@ -12,6 +12,9 @@ public class TowerSelectionMenu : MonoBehaviour
     public GameObject tower2Prefab;
     public GameObject tower3Prefab;
 
+    public float focusedHeightOffset = 60f; // Wysokoœæ panelu w trybie Play Focused
+    public float maximizedHeightOffset = 90f; // Wysokoœæ panelu w trybie Play Maximized
+
     public void Open_Close(EmptyField field)
     {
         if (menuPanel.activeSelf)
@@ -29,9 +32,12 @@ public class TowerSelectionMenu : MonoBehaviour
         selectedField = field;
         menuPanel.SetActive(true);
 
+        // Ustal wysokoœæ offsetu na podstawie trybu wyœwietlania
+        float heightOffset = (Screen.width > 1000 && Screen.height > 600) ? maximizedHeightOffset : focusedHeightOffset;
+
         // Ustawienie pozycji panelu nad klikniêtym polem w przestrzeni ekranu
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(field.transform.position);
-        screenPosition.y += 60; // Dostosowanie wysokoœci, aby panel by³ nad polem
+        screenPosition.y += heightOffset; // Dostosowanie wysokoœci, aby panel by³ nad polem
 
         RectTransform menuRectTransform = menuPanel.GetComponent<RectTransform>();
         float menuHeight = menuRectTransform.rect.height;
