@@ -122,6 +122,95 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &497698533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 354735268719915800, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146619105127312734, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3146619105127312734, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176668264161129324, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449150500194095727, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_Name
+      value: Mushroom_lvl_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945117297700352533, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 710.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945117297700352533, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 85.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945117297700352533, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 864.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945117297700352533, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -220.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8715582835634339819, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.010009766
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,3 +479,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1688214688}
   - {fileID: 1582257913}
+  - {fileID: 497698533}
