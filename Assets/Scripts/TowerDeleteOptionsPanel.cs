@@ -21,7 +21,7 @@ public class TowerDeleteOptionsPanel : MonoBehaviour
 
         // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
-        screenPosition.y += 95; // Dostosowanie wysokoœci panelu
+        screenPosition.y += 98; // Dostosowanie wysokoœci panelu
 
         // Pobierz rozmiary panelu
         RectTransform panelDeleteRectTransform = deleteOptionsPanel.GetComponent<RectTransform>();
