@@ -44,10 +44,12 @@ public class WavesController : MonoBehaviour
     private const float goblinLVL2NumberFactor = 0.1f;
     private const float mushroomLVL1NumberFactor = 0.05f;
 
-    private int enemyNumber;
+    private int enemyNumberInWave;
+    private int currentEnemyNumber;
     private int currentWave;
     private float timeToNextWave;
     private Transform startPointTranslation;
+    private Vector3 startPointCoordinates;
 
     void Start()
     {
@@ -56,8 +58,8 @@ public class WavesController : MonoBehaviour
         goblinLVL1CurrentWaveNumber = goblinLVL1InitialNumber;
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
-        
-        SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+
+        startPointCoordinates = startPoint.position;
     }
 
     void FixedUpdate()
@@ -67,9 +69,6 @@ public class WavesController : MonoBehaviour
             if (currentWave < numberOfWaves)
             {
                 SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
-            } else
-            {
-                Destroy(this.gameObject);
             }
         }
         timeToNextWave -= Time.deltaTime;
@@ -84,28 +83,37 @@ public class WavesController : MonoBehaviour
             SummonEnemy(mushroomLVL1Prefab);
             mushroomLVL1Number--;
         }
+
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (skeletonLVL1Number > 0)
         {
             SummonEnemy(skeletonLVL1Prefab);
             skeletonLVL1Number--;
         }
+
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (skeletonLVL2Number > 0)
         {
             SummonEnemy(skeletonLVL2Prefab);
             skeletonLVL2Number--;
         }
+
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (goblinLVL1Number > 0)
         {
             SummonEnemy(goblinLVL1Prefab);
             goblinLVL1Number--;
         }
+
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (goblinLVL2Number > 0)
         {
             SummonEnemy(goblinLVL2Prefab);
             goblinLVL2Number--;
         }
         timeToNextWave = timeBetweenWavesInSeconds;
-        enemyNumber = NextWaveEnemiesNumber();
+        enemyNumberInWave = NextWaveEnemiesNumber();
+        startPoint.position = startPointCoordinates;
     }
 
     private void SummonEnemy(GameObject enemyPrefab)
@@ -115,17 +123,17 @@ public class WavesController : MonoBehaviour
         scriptEnemyController.startPoint = this.startPoint;
         scriptEnemyController.nextTarget = this.nextTarget;
         newEnemy.GetComponent<Transform>().position = startPointTranslation.position;
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 1.0f);
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction);
     }
 
-    private Vector3 GetRandomTranslation(Direction dir, float maxValue)
+    private Vector3 GetRandomTranslation(Direction dir, float minValue = 0f, float maxValue=1f)
     {
         switch (dir)
         {
-            case Direction.right: return new Vector3(-UnityEngine.Random.Range(0, maxValue), 0, 0);
-            case Direction.left: return new Vector3(UnityEngine.Random.Range(0, maxValue), 0, 0);
-            case Direction.top: return new Vector3(0, UnityEngine.Random.Range(0, maxValue), 0);
-            case Direction.bottom: return new Vector3(0, -UnityEngine.Random.Range(0, maxValue), 0);
+            case Direction.right: return new Vector3(-UnityEngine.Random.Range(minValue, maxValue), 0, 0);
+            case Direction.left: return new Vector3(UnityEngine.Random.Range(minValue, maxValue), 0, 0);
+            case Direction.top: return new Vector3(0, UnityEngine.Random.Range(minValue, maxValue), 0);
+            case Direction.bottom: return new Vector3(0, -UnityEngine.Random.Range(minValue, maxValue), 0);
             default: return new Vector3(0, 0, 0);
         }
     }
@@ -140,26 +148,26 @@ public class WavesController : MonoBehaviour
         }
         if (enableSkeletonLVL2)
         {
-            skeletonLVL2CurrentWaveNumber = (currentWave >= 1 && skeletonLVL2CurrentWaveNumber == 0) ? 
-                5 : 
+            skeletonLVL2CurrentWaveNumber = (currentWave >= 3 && skeletonLVL2CurrentWaveNumber == 0) ? 
+                4 : 
                 skeletonLVL2CurrentWaveNumber + (int)Math.Ceiling(skeletonLVL2NumberFactor * skeletonLVL2CurrentWaveNumber);
         }
         if (enableGoblinLVL1)
         {
-            goblinLVL1CurrentWaveNumber = (currentWave >= 1 && goblinLVL1CurrentWaveNumber == 0) ? 
+            goblinLVL1CurrentWaveNumber = (currentWave >= 5 && goblinLVL1CurrentWaveNumber == 0) ? 
                 5 : 
                 goblinLVL1CurrentWaveNumber + (int)Math.Ceiling(goblinLVL1NumberFactor * goblinLVL1CurrentWaveNumber);
         }
         if (enableGoblinLVL2)
         {
-            goblinLVL2CurrentWaveNumber = (currentWave >= 1 && goblinLVL2CurrentWaveNumber == 0) ? 
-                5 : 
+            goblinLVL2CurrentWaveNumber = (currentWave >= 7 && goblinLVL2CurrentWaveNumber == 0) ? 
+                4 : 
                 goblinLVL2CurrentWaveNumber + (int)Math.Ceiling(goblinLVL2NumberFactor * goblinLVL2CurrentWaveNumber);
         }
         if (enableMushroomLVL1)
         {
-            mushroomLVL1CurrentWaveNumber = (currentWave >= 1 && mushroomLVL1CurrentWaveNumber == 0) ? 
-                5 : 
+            mushroomLVL1CurrentWaveNumber = (currentWave >= 9 && mushroomLVL1CurrentWaveNumber == 0) ? 
+                2 : 
                 mushroomLVL1CurrentWaveNumber + (int)Math.Ceiling(mushroomLVL1NumberFactor * mushroomLVL1CurrentWaveNumber);
         }
         Debug.Log("Skeleton LVL_1: " + skeletonLVL1CurrentWaveNumber.ToString());

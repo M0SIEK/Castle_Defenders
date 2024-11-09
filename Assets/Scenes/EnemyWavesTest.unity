@@ -502,7 +502,7 @@ MonoBehaviour:
   goblinLVL2InitialNumber: 2
   mushroomLVL1InitialNumber: 1
   numberOfWaves: 3
-  timeBetweenWavesInSeconds: 10
+  timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
   enableGoblinLVL1: 1
