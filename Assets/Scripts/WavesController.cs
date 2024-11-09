@@ -71,18 +71,43 @@ public class WavesController : MonoBehaviour
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
     {
         startPointTranslation = startPoint;
+        //while (mushroomLVL1Number > 0)
+        //{
+        //    SummonEnemy(mushroomLVL1Prefab);
+        //    mushroomLVL1Number--;
+        //}
         while (skeletonLVL1Number > 0)
         {
-            GameObject newEnemy = Instantiate(skeletonLVL1Prefab, startPoint.position, Quaternion.identity, enemiesParentObject.transform);
-            EnemyController scriptEnemyController = newEnemy.GetComponent<EnemyController>();
-            scriptEnemyController.startPoint = this.startPoint;
-            scriptEnemyController.nextTarget = this.nextTarget;
-            newEnemy.GetComponent<Transform>().position = startPointTranslation.position;
-            startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 1.0f);
+            SummonEnemy(skeletonLVL1Prefab);
             skeletonLVL1Number--;
         }
+        //while (skeletonLVL2Number > 0)
+        //{
+        //    SummonEnemy(skeletonLVL2Prefab);
+        //    skeletonLVL2Number--;
+        //}
+        //while (goblinLVL1Number > 0)
+        //{
+        //    SummonEnemy(goblinLVL1Prefab);
+        //    skeletonLVL2Number--;
+        //}
+        //while (goblinLVL2Number > 0)
+        //{
+        //    SummonEnemy(goblinLVL2Prefab);
+        //    skeletonLVL2Number--;
+        //}
         timeToNextWave = timeBetweenWavesInSeconds;
         enemyNumber = NextWaveEnemiesNumber();
+    }
+
+    private void SummonEnemy(GameObject enemyPrefab)
+    {
+        GameObject newEnemy = Instantiate(enemyPrefab, startPoint.position, Quaternion.identity, enemiesParentObject.transform);
+        EnemyController scriptEnemyController = newEnemy.GetComponent<EnemyController>();
+        scriptEnemyController.startPoint = this.startPoint;
+        scriptEnemyController.nextTarget = this.nextTarget;
+        newEnemy.GetComponent<Transform>().position = startPointTranslation.position;
+        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 1.0f);
     }
 
     private Vector3 GetRandomTranslation(Direction dir, float maxValue)
