@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.VisualScripting;
 
 public class WavesController : MonoBehaviour
 {
@@ -22,11 +23,13 @@ public class WavesController : MonoBehaviour
 
     public Direction direction;
     public Transform startPoint;
+    public Transform nextTarget;
     public GameObject skeletonLVL1Prefab;
     public GameObject skeletonLVL2Prefab;
     public GameObject goblinLVL1Prefab;
     public GameObject goblinLVL2Prefab;
     public GameObject mushroomLVL1Prefab;
+    public GameObject enemiesParentObject; //Pusty GameObject do grupowania przeciwnikow na scenie
 
 
     private int skeletonLVL1CurrentWaveNumber;
@@ -44,6 +47,7 @@ public class WavesController : MonoBehaviour
     private int enemyNumber;
     private int currentWave;
     private int timeToNextWave;
+    private Transform startPointTranslation;
 
     void Start()
     {
@@ -52,9 +56,8 @@ public class WavesController : MonoBehaviour
         goblinLVL1CurrentWaveNumber = goblinLVL1InitialNumber;
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
-  
-        SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
 
+        SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
     }
 
     void FixedUpdate()
@@ -62,6 +65,35 @@ public class WavesController : MonoBehaviour
         if(timeToNextWave <= 0)
         {
             SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+        }
+    }
+
+    private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
+    {
+        startPointTranslation = startPoint;
+        while (skeletonLVL1Number > 0)
+        {
+            GameObject newEnemy = Instantiate(skeletonLVL1Prefab, startPoint.position, Quaternion.identity, enemiesParentObject.transform);
+            EnemyController scriptEnemyController = newEnemy.GetComponent<EnemyController>();
+            scriptEnemyController.startPoint = this.startPoint;
+            scriptEnemyController.nextTarget = this.nextTarget;
+            newEnemy.GetComponent<Transform>().position = startPointTranslation.position;
+            startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 1.0f);
+            skeletonLVL1Number--;
+        }
+        timeToNextWave = timeBetweenWavesInSeconds;
+        enemyNumber = NextWaveEnemiesNumber();
+    }
+
+    private Vector3 GetRandomTranslation(Direction dir, float maxValue)
+    {
+        switch (dir)
+        {
+            case Direction.right: return new Vector3(-UnityEngine.Random.Range(0, maxValue), 0, 0);
+            case Direction.left: return new Vector3(UnityEngine.Random.Range(0, maxValue), 0, 0);
+            case Direction.top: return new Vector3(0, UnityEngine.Random.Range(0, maxValue), 0);
+            case Direction.bottom: return new Vector3(0, -UnityEngine.Random.Range(0, maxValue), 0);
+            default: return new Vector3(0, 0, 0);
         }
     }
 
@@ -105,16 +137,4 @@ public class WavesController : MonoBehaviour
 
         return skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
     }
-
-    private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
-    {
-        while (skeletonLVL1Number > 0)
-        {
-            Instantiate(skeletonLVL1Prefab, startPoint);
-            skeletonLVL1Number--;
-        }
-
-        enemyNumber = NextWaveEnemiesNumber();
-    }
-
 }

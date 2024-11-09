@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 
-enum Direction
+public enum Direction
 {
     top,
     right,
@@ -43,9 +43,9 @@ public class EnemyController : MonoBehaviour
         var randTranslation = UnityEngine.Random.Range(-1.0f, 1.0f);
 
         //ustawienie poczatkowej pozycji
-        this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(startPoint.position.x, startPoint.position.y + randTranslation, startPoint.position.z) : new Vector3(startPoint.position.x + randTranslation, startPoint.position.y, startPoint.position.z);
+        this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
 
-        InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
+        //InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
 
     void FixedUpdate()
