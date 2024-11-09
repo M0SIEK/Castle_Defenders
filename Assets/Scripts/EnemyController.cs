@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
 
     private Direction direction;
     private Direction currentDirection;
-    private Vector3 currentPosition;
+    private Vector3 currentTargetPosition;
     private bool isDead = false;
     void Start()
     {
@@ -33,12 +33,17 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
-        this.transform.position = startPoint.position;
-        currentPosition = startPoint.position;
+
+        currentTargetPosition = startPoint.position;
         currentDirection = Direction.right;
 
         //ustawienie kierunku poruszania sie
         SetDirection();
+
+        var randTranslation = UnityEngine.Random.Range(-1.0f, 1.0f);
+
+        //ustawienie poczatkowej pozycji
+        this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(startPoint.position.x, startPoint.position.y + randTranslation, startPoint.position.z) : new Vector3(startPoint.position.x + randTranslation, startPoint.position.y, startPoint.position.z);
 
         InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
@@ -56,7 +61,7 @@ public class EnemyController : MonoBehaviour
     {
         if(nextPathTarget != null)
         {
-            currentPosition = nextPathTarget.position == nextTarget.position ? currentPosition : nextTarget.position;
+            currentTargetPosition = nextPathTarget.position == nextTarget.position ? currentTargetPosition : nextTarget.position;
             nextTarget = nextPathTarget;
             SetDirection();
         } else
@@ -95,19 +100,19 @@ public class EnemyController : MonoBehaviour
 
     private void SetDirection()
     {
-        if (nextTarget.position.x > currentPosition.x && nextTarget.position.y == currentPosition.y)
+        if (nextTarget.position.x > currentTargetPosition.x && nextTarget.position.y == currentTargetPosition.y)
         {
             direction = Direction.right;
         }
-        else if (nextTarget.position.x < currentPosition.x && nextTarget.position.y == currentPosition.y)
+        else if (nextTarget.position.x < currentTargetPosition.x && nextTarget.position.y == currentTargetPosition.y)
         {
             direction = Direction.left;
         }
-        else if (nextTarget.position.y < currentPosition.y && nextTarget.position.x == currentPosition.x)
+        else if (nextTarget.position.y < currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.position.y > currentPosition.y && nextTarget.position.x == currentPosition.x)  
+        else if (nextTarget.position.y > currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)  
         {
             direction = Direction.top;
         }
