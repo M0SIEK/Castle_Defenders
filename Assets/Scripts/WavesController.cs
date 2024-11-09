@@ -46,7 +46,7 @@ public class WavesController : MonoBehaviour
 
     private int enemyNumber;
     private int currentWave;
-    private int timeToNextWave;
+    private float timeToNextWave;
     private Transform startPointTranslation;
 
     void Start()
@@ -56,46 +56,54 @@ public class WavesController : MonoBehaviour
         goblinLVL1CurrentWaveNumber = goblinLVL1InitialNumber;
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
-
+        
         SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
     }
 
     void FixedUpdate()
     {
-        if(timeToNextWave <= 0)
+        if(timeToNextWave <= 0f)
         {
-            SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+            if (currentWave < numberOfWaves)
+            {
+                SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+            } else
+            {
+                Destroy(this.gameObject);
+            }
         }
+        timeToNextWave -= Time.deltaTime;
     }
 
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
     {
+        currentWave++;
         startPointTranslation = startPoint;
-        //while (mushroomLVL1Number > 0)
-        //{
-        //    SummonEnemy(mushroomLVL1Prefab);
-        //    mushroomLVL1Number--;
-        //}
+        while (mushroomLVL1Number > 0)
+        {
+            SummonEnemy(mushroomLVL1Prefab);
+            mushroomLVL1Number--;
+        }
         while (skeletonLVL1Number > 0)
         {
             SummonEnemy(skeletonLVL1Prefab);
             skeletonLVL1Number--;
         }
-        //while (skeletonLVL2Number > 0)
-        //{
-        //    SummonEnemy(skeletonLVL2Prefab);
-        //    skeletonLVL2Number--;
-        //}
-        //while (goblinLVL1Number > 0)
-        //{
-        //    SummonEnemy(goblinLVL1Prefab);
-        //    skeletonLVL2Number--;
-        //}
-        //while (goblinLVL2Number > 0)
-        //{
-        //    SummonEnemy(goblinLVL2Prefab);
-        //    skeletonLVL2Number--;
-        //}
+        while (skeletonLVL2Number > 0)
+        {
+            SummonEnemy(skeletonLVL2Prefab);
+            skeletonLVL2Number--;
+        }
+        while (goblinLVL1Number > 0)
+        {
+            SummonEnemy(goblinLVL1Prefab);
+            goblinLVL1Number--;
+        }
+        while (goblinLVL2Number > 0)
+        {
+            SummonEnemy(goblinLVL2Prefab);
+            goblinLVL2Number--;
+        }
         timeToNextWave = timeBetweenWavesInSeconds;
         enemyNumber = NextWaveEnemiesNumber();
     }
