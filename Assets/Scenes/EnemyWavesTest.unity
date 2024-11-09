@@ -493,13 +493,20 @@ MonoBehaviour:
   goblinLVL1InitialNumber: 5
   goblinLVL2InitialNumber: 2
   mushroomLVL1InitialNumber: 1
-  numberOfWaves: 0
-  timeBetweenWavesInSeconds: 0
+  numberOfWaves: 3
+  timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
   enableGoblinLVL1: 1
   enableGoblinLVL2: 1
   enableMushroomLVL1: 1
+  direction: 1
+  startPoint: {fileID: 437983242}
+  skeletonLVL1Prefab: {fileID: 4039129103881877844, guid: 4742c59307e9ddd4c8838069e30f04e1, type: 3}
+  skeletonLVL2Prefab: {fileID: 6579262375783922334, guid: ef2c3dea753a1bc478b7e80e86ce3dae, type: 3}
+  goblinLVL1Prefab: {fileID: 115634939147391791, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
+  goblinLVL2Prefab: {fileID: 3434795594014588675, guid: 0e72afec022df7148993d8bb7c26b1ea, type: 3}
+  mushroomLVL1Prefab: {fileID: 7449150500194095727, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
 --- !u!4 &444326452
 Transform:
   m_ObjectHideFlags: 0

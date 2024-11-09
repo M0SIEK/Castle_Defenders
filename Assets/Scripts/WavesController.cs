@@ -20,6 +20,14 @@ public class WavesController : MonoBehaviour
     public bool enableGoblinLVL2;
     public bool enableMushroomLVL1;
 
+    public Direction direction;
+    public Transform startPoint;
+    public GameObject skeletonLVL1Prefab;
+    public GameObject skeletonLVL2Prefab;
+    public GameObject goblinLVL1Prefab;
+    public GameObject goblinLVL2Prefab;
+    public GameObject mushroomLVL1Prefab;
+
 
     private int skeletonLVL1CurrentWaveNumber;
     private int skeletonLVL2CurrentWaveNumber;
@@ -35,6 +43,7 @@ public class WavesController : MonoBehaviour
 
     private int enemyNumber;
     private int currentWave;
+    private int timeToNextWave;
 
     void Start()
     {
@@ -43,29 +52,20 @@ public class WavesController : MonoBehaviour
         goblinLVL1CurrentWaveNumber = goblinLVL1InitialNumber;
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
-        Debug.Log("Skeleton LVL_1: " + skeletonLVL1CurrentWaveNumber.ToString());
-        Debug.Log("Skeleton LVL_2: " + skeletonLVL2CurrentWaveNumber.ToString());
-        Debug.Log("Goblin LVL_1: " + goblinLVL1CurrentWaveNumber.ToString());
-        Debug.Log("Goblin LVL_2: " + goblinLVL2CurrentWaveNumber.ToString());
-        Debug.Log("Mushroom LVL_1: " + mushroomLVL1CurrentWaveNumber.ToString());
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
-        NextWaveEnemiesNumber();
+  
+        SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(timeToNextWave <= 0)
+        {
+            SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
+        }
     }
 
-    private void NextWaveEnemiesNumber()
+    private int NextWaveEnemiesNumber()
     {
         if (enableSkeletonLVL1)
         {
@@ -102,6 +102,19 @@ public class WavesController : MonoBehaviour
         Debug.Log("Goblin LVL_1: " + goblinLVL1CurrentWaveNumber.ToString());
         Debug.Log("Goblin LVL_2: " + goblinLVL2CurrentWaveNumber.ToString());
         Debug.Log("Mushroom LVL_1: " + mushroomLVL1CurrentWaveNumber.ToString());
+
+        return skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
+    }
+
+    private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
+    {
+        while (skeletonLVL1Number > 0)
+        {
+            Instantiate(skeletonLVL1Prefab, startPoint);
+            skeletonLVL1Number--;
+        }
+
+        enemyNumber = NextWaveEnemiesNumber();
     }
 
 }
