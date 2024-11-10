@@ -496,11 +496,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f1d074a0bf9ee45ba09f6293b147e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonLVL1InitialNumber: 0
-  skeletonLVL2InitialNumber: 0
-  goblinLVL1InitialNumber: 0
+  skeletonLVL1InitialNumber: 5
+  skeletonLVL2InitialNumber: 2
+  goblinLVL1InitialNumber: 3
   goblinLVL2InitialNumber: 1
-  mushroomLVL1InitialNumber: 0
+  mushroomLVL1InitialNumber: 1
   numberOfWaves: 10
   timeBetweenWavesInSeconds: 10
   enableSkeletonLVL1: 1
@@ -517,6 +517,9 @@ MonoBehaviour:
   goblinLVL2Prefab: {fileID: 3434795594014588675, guid: 0e72afec022df7148993d8bb7c26b1ea, type: 3}
   mushroomLVL1Prefab: {fileID: 7449150500194095727, guid: 664ed28b21de65049b2e57401f9b33e0, type: 3}
   enemiesParentObject: {fileID: 1358686156}
+  timerText: {fileID: 2146109105}
+  enemiesLeftText: {fileID: 1210264360}
+  waveText: {fileID: 1307910922}
 --- !u!4 &444326452
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +701,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
+--- !u!114 &1210264360 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6844639925811446217, guid: 6fcc95a4d5c283846a12262c656654c7, type: 3}
+  m_PrefabInstance: {fileID: 1581129366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1244735750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -868,6 +882,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
+--- !u!114 &1307910922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2147250691235275558, guid: 6fcc95a4d5c283846a12262c656654c7, type: 3}
+  m_PrefabInstance: {fileID: 1581129366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1358686156
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,6 +1169,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718257699156318871, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
   m_PrefabInstance: {fileID: 1244735750}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2146109105 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1216248693447159645, guid: 6fcc95a4d5c283846a12262c656654c7, type: 3}
+  m_PrefabInstance: {fileID: 1581129366}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
