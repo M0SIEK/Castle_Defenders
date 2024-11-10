@@ -496,13 +496,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f1d074a0bf9ee45ba09f6293b147e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonLVL1InitialNumber: 5
-  skeletonLVL2InitialNumber: 2
-  goblinLVL1InitialNumber: 5
-  goblinLVL2InitialNumber: 2
-  mushroomLVL1InitialNumber: 1
-  numberOfWaves: 3
-  timeBetweenWavesInSeconds: 30
+  skeletonLVL1InitialNumber: 0
+  skeletonLVL2InitialNumber: 0
+  goblinLVL1InitialNumber: 0
+  goblinLVL2InitialNumber: 1
+  mushroomLVL1InitialNumber: 0
+  numberOfWaves: 10
+  timeBetweenWavesInSeconds: 10
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
   enableGoblinLVL1: 1

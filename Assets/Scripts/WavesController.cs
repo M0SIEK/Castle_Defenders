@@ -45,6 +45,7 @@ public class WavesController : MonoBehaviour
     private const float mushroomLVL1NumberFactor = 0.05f;
 
     private int enemyNumberInWave;
+    private int enemyNumberInNextWave;
     private int currentEnemyNumber;
     private int currentWave;
     private float timeToNextWave;
@@ -58,6 +59,8 @@ public class WavesController : MonoBehaviour
         goblinLVL1CurrentWaveNumber = goblinLVL1InitialNumber;
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
+
+        enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
 
         startPointCoordinates = startPoint.position;
     }
@@ -78,6 +81,7 @@ public class WavesController : MonoBehaviour
     {
         currentWave++;
         startPointTranslation = startPoint;
+        enemyNumberInWave = enemyNumberInNextWave;
         while (mushroomLVL1Number > 0)
         {
             SummonEnemy(mushroomLVL1Prefab);
@@ -112,7 +116,7 @@ public class WavesController : MonoBehaviour
             goblinLVL2Number--;
         }
         timeToNextWave = timeBetweenWavesInSeconds;
-        enemyNumberInWave = NextWaveEnemiesNumber();
+        enemyNumberInNextWave = NextWaveEnemiesNumber();
         startPoint.position = startPointCoordinates;
     }
 
@@ -142,7 +146,7 @@ public class WavesController : MonoBehaviour
     {
         if (enableSkeletonLVL1)
         {
-            skeletonLVL1CurrentWaveNumber = (currentWave >= 1 && skeletonLVL1CurrentWaveNumber == 0) ? 
+            skeletonLVL1CurrentWaveNumber = (currentWave >= 2 && skeletonLVL1CurrentWaveNumber == 0) ? 
                 5 : 
                 skeletonLVL1CurrentWaveNumber + (int)Math.Ceiling(skeletonLVL1NumberFactor * skeletonLVL1CurrentWaveNumber);
         }
