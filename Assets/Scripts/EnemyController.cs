@@ -27,9 +27,11 @@ public class EnemyController : MonoBehaviour
     private Direction currentDirection;
     private Vector3 currentTargetPosition;
     private bool isDead = false;
+    private WavesController wavesController;
     void Start()
     {
         hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
         animator = GetComponent<Animator>();
 
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
@@ -73,7 +75,7 @@ public class EnemyController : MonoBehaviour
     //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
     public void OnDamage()
     {
-        float damage = 40f;
+        float damage = 50f;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         animator.SetTrigger("injured");
@@ -149,11 +151,13 @@ public class EnemyController : MonoBehaviour
 
     private void Dead()
     {
+        wavesController.DecrementEnemyNumber();
         Destroy(this.gameObject);
     }
 
     private void Passed()
     {
+        wavesController.DecrementEnemyNumber();
         Destroy(this.gameObject);
     }
 }

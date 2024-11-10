@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 444326451}
   m_Layer: 0
   m_Name: WavesController
-  m_TagString: Untagged
+  m_TagString: WavesController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,8 +501,8 @@ MonoBehaviour:
   goblinLVL1InitialNumber: 3
   goblinLVL2InitialNumber: 1
   mushroomLVL1InitialNumber: 1
-  numberOfWaves: 10
-  timeBetweenWavesInSeconds: 10
+  numberOfWaves: 3
+  timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
   enableGoblinLVL1: 1
@@ -1186,7 +1186,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 63962871}
   - {fileID: 444326452}
+  - {fileID: 1581129366}
   - {fileID: 300880304}
   - {fileID: 1647288158}
   - {fileID: 1358686157}
-  - {fileID: 1581129366}

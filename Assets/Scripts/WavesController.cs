@@ -50,7 +50,6 @@ public class WavesController : MonoBehaviour
 
     private int enemyNumberInWave;
     private int enemyNumberInNextWave;
-    private int currentEnemyNumber;
     private int currentWave;
     private float timeToNextWave;
     private Transform startPointTranslation;
@@ -81,14 +80,30 @@ public class WavesController : MonoBehaviour
         UpdateTimer();
     }
 
+    public void DecrementEnemyNumber()
+    {
+        enemyNumberInWave--;
+        UpdateEnemiesLeftText(enemyNumberInWave);
+    }
+
+    private void UpdateEnemiesLeftText(int enemiesLeft)
+    {
+        enemiesLeftText.GetComponent<TextMeshProUGUI>().text = enemiesLeft.ToString();
+    }
     private void UpdateTimer()
     {
         timeToNextWave -= Time.deltaTime;
-        int minutes = (int)(timeToNextWave / 60);
-        int seconds = (int)(timeToNextWave % 60);
-        string secondsText = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
-        string minutesText = minutes < 10 ? "0" + minutes.ToString() : minutes.ToString();
-        timerText.GetComponent<TextMeshProUGUI>().text = $"{minutesText}:{secondsText}";
+        if (timeToNextWave > -0.8f)
+        {
+            int minutes = (int)(timeToNextWave / 60);
+            int seconds = (int)(timeToNextWave % 60);
+            string secondsText = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
+            string minutesText = minutes < 10 ? "0" + minutes.ToString() : minutes.ToString();
+            timerText.GetComponent<TextMeshProUGUI>().text = $"{minutesText}:{secondsText}";
+        } else
+        {
+            timerText.GetComponent<TextMeshProUGUI>().text = "00:00";
+        }
     }
 
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
@@ -129,7 +144,7 @@ public class WavesController : MonoBehaviour
             SummonEnemy(goblinLVL2Prefab);
             goblinLVL2Number--;
         }
-        timeToNextWave = timeBetweenWavesInSeconds;
+        timeToNextWave = currentWave < numberOfWaves ? timeBetweenWavesInSeconds : 0;
         enemyNumberInNextWave = NextWaveEnemiesNumber();
         startPoint.position = startPointCoordinates;
     }
@@ -143,7 +158,7 @@ public class WavesController : MonoBehaviour
     private void UpdateEnemyNumber()
     {
         enemyNumberInWave += enemyNumberInNextWave;
-        enemiesLeftText.GetComponent<TextMeshProUGUI>().text = enemyNumberInWave.ToString();
+        UpdateEnemiesLeftText(enemyNumberInWave);
     }
 
     private void SummonEnemy(GameObject enemyPrefab)
