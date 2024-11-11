@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System;
 
-enum Direction
+public enum Direction
 {
     top,
     right,
@@ -25,22 +25,29 @@ public class EnemyController : MonoBehaviour
 
     private Direction direction;
     private Direction currentDirection;
-    private Vector3 currentPosition;
+    private Vector3 currentTargetPosition;
     private bool isDead = false;
+    private WavesController wavesController;
     void Start()
     {
         hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
         animator = GetComponent<Animator>();
 
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
-        this.transform.position = startPoint.position;
-        currentPosition = startPoint.position;
+
+        currentTargetPosition = startPoint.position;
         currentDirection = Direction.right;
 
         //ustawienie kierunku poruszania sie
         SetDirection();
 
-        InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
+        var randTranslation = UnityEngine.Random.Range(-1.0f, 1.0f);
+
+        //ustawienie poczatkowej pozycji
+        this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
+
+        //InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
 
     void FixedUpdate()
@@ -56,7 +63,7 @@ public class EnemyController : MonoBehaviour
     {
         if(nextPathTarget != null)
         {
-            currentPosition = nextPathTarget.position == nextTarget.position ? currentPosition : nextTarget.position;
+            currentTargetPosition = nextPathTarget.position == nextTarget.position ? currentTargetPosition : nextTarget.position;
             nextTarget = nextPathTarget;
             SetDirection();
         } else
@@ -68,7 +75,7 @@ public class EnemyController : MonoBehaviour
     //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
     public void OnDamage()
     {
-        float damage = 40f;
+        float damage = 50f;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         animator.SetTrigger("injured");
@@ -95,19 +102,19 @@ public class EnemyController : MonoBehaviour
 
     private void SetDirection()
     {
-        if (nextTarget.position.x > currentPosition.x && nextTarget.position.y == currentPosition.y)
+        if (nextTarget.position.x > currentTargetPosition.x && nextTarget.position.y == currentTargetPosition.y)
         {
             direction = Direction.right;
         }
-        else if (nextTarget.position.x < currentPosition.x && nextTarget.position.y == currentPosition.y)
+        else if (nextTarget.position.x < currentTargetPosition.x && nextTarget.position.y == currentTargetPosition.y)
         {
             direction = Direction.left;
         }
-        else if (nextTarget.position.y < currentPosition.y && nextTarget.position.x == currentPosition.x)
+        else if (nextTarget.position.y < currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.position.y > currentPosition.y && nextTarget.position.x == currentPosition.x)  
+        else if (nextTarget.position.y > currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)  
         {
             direction = Direction.top;
         }
@@ -144,11 +151,13 @@ public class EnemyController : MonoBehaviour
 
     private void Dead()
     {
+        wavesController.DecrementEnemyNumber();
         Destroy(this.gameObject);
     }
 
     private void Passed()
     {
+        wavesController.DecrementEnemyNumber();
         Destroy(this.gameObject);
     }
 }
