@@ -28,11 +28,14 @@ public class EnemyController : MonoBehaviour
     private Vector3 currentTargetPosition;
     private bool isDead = false;
     private WavesController wavesController;
+    private HitPointsBarController playerHitPointsBarController;
+    private static float playerHitPoints=1000;
     void Start()
     {
         hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
         wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
         animator = GetComponent<Animator>();
+        playerHitPointsBarController = GameObject.FindGameObjectWithTag("GUI").GetComponentInChildren<HitPointsBarController>();
 
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
 
@@ -158,6 +161,8 @@ public class EnemyController : MonoBehaviour
     private void Passed()
     {
         wavesController.DecrementEnemyNumber();
+        playerHitPoints -= 100;
+        playerHitPointsBarController.UpdateHitPointsBar(playerHitPoints, 1000);
         Destroy(this.gameObject);
     }
 }
