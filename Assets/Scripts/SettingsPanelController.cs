@@ -23,6 +23,17 @@ public class SettingsPanelController : MonoBehaviour
         ResumeGame();
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadScene(string sceneName)
+    {
+        Debug.Log("Load " + sceneName);
+        SceneManager.LoadScene(sceneName);   
+    }
+
     private void PauseGame()
     {
         Time.timeScale = 0;

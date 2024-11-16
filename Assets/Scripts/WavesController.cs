@@ -66,6 +66,7 @@ public class WavesController : MonoBehaviour
         enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
 
         startPointCoordinates = startPoint.position;
+        Time.timeScale = 1;
     }
 
     void FixedUpdate()
