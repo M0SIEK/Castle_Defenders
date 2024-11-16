@@ -14,10 +14,22 @@ public class SettingsPanelController : MonoBehaviour
     public void ShowSettingsPanel()
     {
         settingsPanel.SetActive(true);
+        PauseGame();
     }
 
     public void CloseSettingsPanel()
     {
         settingsPanel.SetActive(false);
+        ResumeGame();
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = 1;
     }
 }
