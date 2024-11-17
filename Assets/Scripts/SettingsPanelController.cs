@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class SettingsPanelController : MonoBehaviour
 {
     public GameObject settingsPanel;
-    public Toggle SoundToggle;
-    public Toggle MusicToggle;
+    public Toggle soundToggle;
+    public Toggle musicToggle;
+    public GameObject wavesController;
 
     private bool soundOn;
     private bool musicOn;
@@ -19,13 +20,13 @@ public class SettingsPanelController : MonoBehaviour
         soundOn = PlayerPrefs.GetInt("sound") == 0 ? false : true;
         musicOn = PlayerPrefs.GetInt("music") == 0 ? false : true;
         
-        if(soundOn != SoundToggle)
+        if(soundOn != soundToggle)
         {
-            SoundToggle.isOn = soundOn;
+            soundToggle.isOn = soundOn;
         }
-        if(musicOn != MusicToggle)
+        if(musicOn != musicToggle)
         {
-            MusicToggle.isOn = musicOn;
+            musicToggle.isOn = musicOn;
         }
     }
     public void ShowSettingsPanel()
@@ -37,7 +38,10 @@ public class SettingsPanelController : MonoBehaviour
     public void CloseSettingsPanel()
     {
         settingsPanel.SetActive(false);
-        ResumeGame();
+        if(wavesController.GetComponent<WavesController>().GetGameStarted())
+        {
+            ResumeGame();
+        }
     }
 
     public void RestartLevel()
@@ -53,13 +57,13 @@ public class SettingsPanelController : MonoBehaviour
 
     public void OnSoundToggle()
     {
-        soundOn = SoundToggle.isOn;
+        soundOn = soundToggle.isOn;
         PlayerPrefs.SetInt("sound", soundOn ? 1 : 0);
     }
 
     public void OnMusicToggle()
     {
-        musicOn = MusicToggle.isOn;
+        musicOn = musicToggle.isOn;
         PlayerPrefs.SetInt("music", musicOn ? 1 : 0);
     }
 

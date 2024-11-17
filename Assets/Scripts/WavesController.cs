@@ -69,9 +69,10 @@ public class WavesController : MonoBehaviour
         enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
         timeToNextWave = 1;
         startPointCoordinates = startPoint.position;
-        summonNextWaveButton.enabled = true;
+        summonNextWaveButton.interactable = true;
         Time.timeScale = 0;
         gameStarted = false;
+        waveText.GetComponent<TextMeshProUGUI>().text = currentWave.ToString() + "/" + numberOfWaves.ToString();
     }
 
     void FixedUpdate()
@@ -101,18 +102,23 @@ public class WavesController : MonoBehaviour
             Time.timeScale = 1;
         }
         timeToNextWave = 0;
-        summonNextWaveButton.enabled = false;
+        summonNextWaveButton.interactable = false;
+    }
+
+    public bool GetGameStarted()
+    {
+        return gameStarted;
     }
 
     private void CheckSummonNextWaveButtonEnable()
     {
-        if (summonNextWaveButton.enabled == false && enemyNumberInWave <= 0 && currentWave < numberOfWaves)
+        if (summonNextWaveButton.interactable == false && enemyNumberInWave <= 0 && currentWave < numberOfWaves)
         {
-            summonNextWaveButton.enabled = true;
+            summonNextWaveButton.interactable = true;
         }
-        else if (enemyNumberInWave > 0 && summonNextWaveButton.enabled == true)
+        else if (enemyNumberInWave > 0 && summonNextWaveButton.interactable == true)
         {
-            summonNextWaveButton.enabled = false;
+            summonNextWaveButton.interactable = false;
         }
     }
 
@@ -182,7 +188,7 @@ public class WavesController : MonoBehaviour
     private void UpdateWaveNumber()
     {
         currentWave++;
-        waveText.GetComponent<TextMeshProUGUI>().text = currentWave.ToString();
+        waveText.GetComponent<TextMeshProUGUI>().text = currentWave.ToString() + "/" + numberOfWaves.ToString();
     }
 
     private void UpdateEnemyNumber()
