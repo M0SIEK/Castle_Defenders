@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using Unity.VisualScripting;
 using TMPro;
+using UnityEngine.UI;
 
 public class WavesController : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class WavesController : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI enemiesLeftText;
     public TextMeshProUGUI waveText;
+    public Button summonNextWaveButton; 
   
 
     private int skeletonLVL1CurrentWaveNumber;
@@ -54,6 +56,7 @@ public class WavesController : MonoBehaviour
     private float timeToNextWave;
     private Transform startPointTranslation;
     private Vector3 startPointCoordinates;
+    private bool gameStarted;
 
     void Start()
     {
@@ -64,9 +67,11 @@ public class WavesController : MonoBehaviour
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
 
         enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
-
+        timeToNextWave = 1;
         startPointCoordinates = startPoint.position;
-        Time.timeScale = 1;
+        summonNextWaveButton.enabled = true;
+        Time.timeScale = 0;
+        gameStarted = false;
     }
 
     void FixedUpdate()
@@ -78,6 +83,7 @@ public class WavesController : MonoBehaviour
                 SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
             }
         }
+        CheckSummonNextWaveButtonEnable();
         UpdateTimer();
     }
 
@@ -85,6 +91,29 @@ public class WavesController : MonoBehaviour
     {
         enemyNumberInWave--;
         UpdateEnemiesLeftText(enemyNumberInWave);
+    }
+
+    public void OnSummonNextWaveButtonClicked()
+    {
+        if (!gameStarted) 
+        {
+            gameStarted = true;
+            Time.timeScale = 1;
+        }
+        timeToNextWave = 0;
+        summonNextWaveButton.enabled = false;
+    }
+
+    private void CheckSummonNextWaveButtonEnable()
+    {
+        if (summonNextWaveButton.enabled == false && enemyNumberInWave <= 0 && currentWave < numberOfWaves)
+        {
+            summonNextWaveButton.enabled = true;
+        }
+        else if (enemyNumberInWave > 0 && summonNextWaveButton.enabled == true)
+        {
+            summonNextWaveButton.enabled = false;
+        }
     }
 
     private void UpdateEnemiesLeftText(int enemiesLeft)
