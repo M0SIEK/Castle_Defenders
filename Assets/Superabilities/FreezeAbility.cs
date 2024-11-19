@@ -2,61 +2,52 @@ using UnityEngine;
 
 public class FreezeAbility : MonoBehaviour
 {
-    public Texture2D cursorImage; // Obraz kursora
-    public GameObject freezeEffectPrefab; // Prefab efektu Freeze
+    public GameObject freezeAreaPrefab; // Prefab obszaru dzia³ania
+    public float freezeDuration = 5f;  // Czas trwania dzia³ania umiejêtnoœci (opcjonalnie do logiki w przysz³oœci)
 
-    private bool isActive = false;
+    private GameObject freezeAreaInstance; // Tymczasowy obiekt podczas umieszczania
+    private bool isPlacingFreezeArea = false; // Czy tryb umieszczania jest aktywny
 
     void Update()
     {
-        if (isActive)
+        if (isPlacingFreezeArea)
         {
-            // Debug: potwierdzenie aktywnoœci
-            Debug.Log("Freeze ability is active.");
-
-            // Ustawienie kursora na pozycjê myszy
-            if (Input.GetMouseButtonDown(0))
-            {
-                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePosition.z = 0; // Reset osi Z dla 2D
-
-                Debug.Log("Mouse clicked at: " + mousePosition);
-
-                // Tworzenie efektu w miejscu klikniêcia
-                if (freezeEffectPrefab != null)
-                {
-                    Instantiate(freezeEffectPrefab, mousePosition, Quaternion.identity);
-                    Debug.Log("Freeze effect instantiated.");
-                }
-                else
-                {
-                    Debug.LogError("FreezeEffectPrefab is not assigned!");
-                }
-
-                // Wy³¹czenie umiejêtnoœci
-                DeactivateAbility();
-            }
+            HandleFreezePlacement();
         }
     }
 
-    public void ActivateAbility()
+    public void ActivateFreezeAbility()
     {
-        if (cursorImage != null)
+        // Sprawdzenie, czy tryb umieszczania nie jest ju¿ aktywny
+        if (!isPlacingFreezeArea)
         {
-            Cursor.SetCursor(cursorImage, new Vector2(cursorImage.width / 2, cursorImage.height / 2), CursorMode.Auto);
-            isActive = true;
-            Debug.Log("Freeze ability activated.");
-        }
-        else
-        {
-            Debug.LogError("Cursor image is not assigned!");
+            // Utworzenie przezroczystego obiektu pod kursorem
+            freezeAreaInstance = Instantiate(freezeAreaPrefab);
+            freezeAreaInstance.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f); // Ustawienie przezroczystoœci
+            isPlacingFreezeArea = true;
         }
     }
 
-    public void DeactivateAbility()
+    private void HandleFreezePlacement()
     {
-        isActive = false;
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Debug.Log("Freeze ability deactivated.");
+        // Przesuwanie obiektu pod kursorem
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Aby obiekt by³ w p³aszczyŸnie 2D
+        freezeAreaInstance.transform.position = mousePosition;
+
+        if (Input.GetMouseButtonDown(0)) // Lewy przycisk myszy: umieszczenie obiektu
+        {
+            Debug.Log("Freeze area placed!");
+            isPlacingFreezeArea = false;
+            freezeAreaInstance.GetComponent<SpriteRenderer>().color = Color.white; // Ustawienie pe³nej widocznoœci
+            // Mo¿esz dodaæ tutaj inne akcje, np. aktywowanie logiki dzia³ania obszaru
+        }
+
+        if (Input.GetMouseButtonDown(1)) // Prawy przycisk myszy: anulowanie
+        {
+            Debug.Log("Freeze area placement canceled.");
+            isPlacingFreezeArea = false;
+            Destroy(freezeAreaInstance);
+        }
     }
 }
