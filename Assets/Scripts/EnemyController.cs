@@ -49,7 +49,7 @@ public class EnemyController : MonoBehaviour
         //ustawienie poczatkowej pozycji
         this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
 
-        //InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
+        InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
 
     void FixedUpdate()
@@ -77,7 +77,7 @@ public class EnemyController : MonoBehaviour
     //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
     public void OnDamage()
     {
-        float damage = 50f;
+        float damage = 250f;
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         animator.SetTrigger("injured");

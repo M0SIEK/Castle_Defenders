@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
+using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class RoundEndController : MonoBehaviour
 {
     public GameObject winScreen;
     public GameObject loseScreen;
     public HitPointsBarController hitPointsBar;  // Odwo³anie do HitPointsBarController
+    public WavesController wavesController;     // Odwo³anie do WavesController (dodane)
 
     private bool roundEnded = false;
 
@@ -24,6 +24,7 @@ public class RoundEndController : MonoBehaviour
         if (!roundEnded)
         {
             CheckLoseCondition();
+            CheckWinCondition(); // Dodane
         }
     }
 
@@ -32,6 +33,14 @@ public class RoundEndController : MonoBehaviour
         if (hitPointsBar.slider.value <= 0)
         {
             ShowLoseScreen();
+        }
+    }
+
+    private void CheckWinCondition() // Nowa metoda
+    {
+        if (wavesController.GetGameStarted() && wavesController.enemyNumberInWave <= 0 && wavesController.currentWave == wavesController.numberOfWaves)
+        {
+            ShowWinScreen();
         }
     }
 
