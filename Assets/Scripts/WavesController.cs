@@ -50,9 +50,9 @@ public class WavesController : MonoBehaviour
     private const float goblinLVL2NumberFactor = 0.1f;
     private const float mushroomLVL1NumberFactor = 0.05f;
 
-    private int enemyNumberInWave;
+    public int enemyNumberInWave;
     private int enemyNumberInNextWave;
-    private int currentWave;
+    public int currentWave;
     private float timeToNextWave;
     private Transform startPointTranslation;
     private Vector3 startPointCoordinates;
