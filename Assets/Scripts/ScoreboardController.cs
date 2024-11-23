@@ -6,6 +6,8 @@ using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Runtime.Serialization;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [DataContract]
 public class Scoreboard
@@ -21,7 +23,7 @@ public class ScoreboardController : MonoBehaviour
 {
     public GameObject scoreboardPanel;
     public TextMeshProUGUI scoreboardTableText;
-    public int numberOfLevels;
+    public TMP_Dropdown selectLevelDropdown;
 
     private string scoreboardTableHeader;
     private string scoreboardTableContent;
@@ -34,13 +36,12 @@ public class ScoreboardController : MonoBehaviour
         scoreboardTableContent = GetScoreboardTableContent();
         scoreboardTableText.GetComponent<TextMeshProUGUI>().text = scoreboardTableHeader + scoreboardTableContent;
 
-        selectedLvlName = "LVL Test";
+        selectedLvlName = SceneManager.GetActiveScene().name;
+        SelectCurrentLevelScoreboard(selectedLvlName);
+
         string[] st = { "test1", "test2" };
         scoreboard = new Scoreboard { LevelName=selectedLvlName, scoreboardContent = st };
-        WriteToJsonFile(scoreboard);
-        Scoreboard scoreboard2 = ReadFromJsonFile(selectedLvlName);
-        Debug.Log(scoreboard2.LevelName + " " + scoreboard2.scoreboardContent[0] + " " + scoreboard2.scoreboardContent[1]);
-    }
+     }
     public void ShowScoreboardPanel()
     {
         scoreboardPanel.SetActive(true);
@@ -51,14 +52,33 @@ public class ScoreboardController : MonoBehaviour
         scoreboardPanel.SetActive(false);
     }
 
+    public void OnSelectLevelDropdownValueChanged()
+    {
+        selectedLvlName = selectLevelDropdown.captionText.text;
+        Debug.Log(selectedLvlName);
+    }
+
     private string GetScoreboardTableContent()
     {
         string content = string.Empty;
-        for (int i = 0; i<numberOfLevels; i++)
+        for (int i = 0; i<5; i++)
         {
             content += (i+1).ToString() + ". .............................................\n";
         }
         return content;
+    }
+
+    private void SelectCurrentLevelScoreboard(string currentLevel)
+    {
+        for (int i = 0; i < selectLevelDropdown.options.Count; i++)
+        {
+            if (selectLevelDropdown.options[i].text == currentLevel)
+            {
+                selectLevelDropdown.value = i;
+                selectLevelDropdown.RefreshShownValue();
+                return;
+            }
+        }
     }
 
     private void WriteToJsonFile(Scoreboard sb)
