@@ -1974,26 +1974,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931940065}
   m_CullTransparentMesh: 1
---- !u!1 &935237468 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 443815865605607665, guid: c5c951f2b3858754390db90869c38433, type: 3}
-  m_PrefabInstance: {fileID: 1605595000}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &935237474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935237468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd363f19ddf56c478ebf4154bb02331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreboardPanel: {fileID: 931940065}
-  scoreboardTableText: {fileID: 0}
-  numberOfLevels: 0
 --- !u!1 &949463685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3888,7 +3868,7 @@ PrefabInstance:
     - target: {fileID: 519473533929298425, guid: c5c951f2b3858754390db90869c38433, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 935237474}
+      objectReference: {fileID: 1247697462}
     - target: {fileID: 519473533929298425, guid: c5c951f2b3858754390db90869c38433, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowScoreboardPanel
@@ -4007,10 +3987,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5125895295205007862, guid: c5c951f2b3858754390db90869c38433, type: 3}
       insertIndex: 2
       addedObject: {fileID: 1247697458}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 443815865605607665, guid: c5c951f2b3858754390db90869c38433, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 935237474}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5c951f2b3858754390db90869c38433, type: 3}
 --- !u!114 &1605595001 stripped
 MonoBehaviour:
