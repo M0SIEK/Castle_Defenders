@@ -37,7 +37,7 @@ public class ScoreboardController : MonoBehaviour
         SelectCurrentLevelScoreboard(selectedLvlName);
         scoreboard = ReadFromJsonFile(selectedLvlName);
 
-        scoreboardTableHeader = "Nr.\t\tWynik\n";
+        scoreboardTableHeader = "Nr.\t\tScore\n";
         scoreboardTableContent = GetScoreboardTableContent(scoreboard.scores);
         scoreboardTableText.GetComponent<TextMeshProUGUI>().text = scoreboardTableHeader + scoreboardTableContent;
     }
@@ -115,6 +115,7 @@ public class ScoreboardController : MonoBehaviour
                 return;
             }
         }
+        selectedLvlName = selectLevelDropdown.options[0].text;
     }
 
     private void WriteToJsonFile(Scoreboard sb)
