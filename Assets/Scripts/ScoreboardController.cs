@@ -37,10 +37,6 @@ public class ScoreboardController : MonoBehaviour
         SelectCurrentLevelScoreboard(selectedLvlName);
         scoreboard = ReadFromJsonFile(selectedLvlName);
 
-        AddNewScore(1000);
-        AddNewScore(1200);
-        AddNewScore(900);
-
         scoreboardTableHeader = "Nr.\t\tWynik\n";
         scoreboardTableContent = GetScoreboardTableContent(scoreboard.scores);
         scoreboardTableText.GetComponent<TextMeshProUGUI>().text = scoreboardTableHeader + scoreboardTableContent;
@@ -87,7 +83,6 @@ public class ScoreboardController : MonoBehaviour
                 minIndex = i;
             }
         }
-        Debug.Log(i.ToString() + " " + minScore.ToString());
         return minIndex;
     }
 
