@@ -76,4 +76,10 @@ public class SettingsPanelController : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1; // Przywrócenie normalnego czasu gry
+        SceneManager.LoadScene("MainMenuScene");
+    }
 }

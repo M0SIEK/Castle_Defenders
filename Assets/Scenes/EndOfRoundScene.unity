@@ -359,8 +359,12 @@ PrefabInstance:
       value: TowerPanel
       objectReference: {fileID: 0}
     - target: {fileID: 1769651707328699858, guid: e3822aef068b49d4a92177cd8bfdd003, type: 3}
+      propertyPath: focusedHeightOffset
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769651707328699858, guid: e3822aef068b49d4a92177cd8bfdd003, type: 3}
       propertyPath: maximizedHeightOffset
-      value: 195
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 4733032807082466575, guid: e3822aef068b49d4a92177cd8bfdd003, type: 3}
       propertyPath: m_Pivot.x
@@ -2475,7 +2479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7577328571628563493, guid: 31eb5b973adac7e48a2c40d46e004e1c, type: 3}
       propertyPath: maximizedHeightOffset
-      value: 200
+      value: 175
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2834,6 +2838,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRound
       objectReference: {fileID: 0}
+    - target: {fileID: 7298759234825575975, guid: 69c9a78252fcd824da14fdab6036cd34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7749957664564990282, guid: 69c9a78252fcd824da14fdab6036cd34, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2963,6 +2971,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2813224103632317679, guid: c5c951f2b3858754390db90869c38433, type: 3}
+      propertyPath: hitPointsBar
+      value: 
+      objectReference: {fileID: 971527626}
+    - target: {fileID: 2813224103632317679, guid: c5c951f2b3858754390db90869c38433, type: 3}
       propertyPath: wavesController
       value: 
       objectReference: {fileID: 524333219}
@@ -3050,6 +3062,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6824076026937474171, guid: c5c951f2b3858754390db90869c38433, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824076026937474171, guid: c5c951f2b3858754390db90869c38433, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7169340436085443071, guid: c5c951f2b3858754390db90869c38433, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3084,7 +3104,7 @@ SceneRoots:
   - {fileID: 1942960337}
   - {fileID: 524333221}
   - {fileID: 1859146715}
-  - {fileID: 227134034}
   - {fileID: 1032378075}
+  - {fileID: 227134034}
   - {fileID: 1861188581}
   - {fileID: 4212763242324250989}
