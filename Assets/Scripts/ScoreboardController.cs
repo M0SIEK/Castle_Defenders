@@ -33,9 +33,7 @@ public class ScoreboardController : MonoBehaviour
     {
         scoreboardPanel.SetActive(false);
 
-        selectedLvlName = SceneManager.GetActiveScene().name;
-        SelectCurrentLevelScoreboard(selectedLvlName);
-        scoreboard = ReadFromJsonFile(selectedLvlName);
+        SetActiveLevelScoreboard();
 
         scoreboardTableHeader = "Nr.\t\tScore\n";
         scoreboardTableContent = GetScoreboardTableContent(scoreboard.scores);
@@ -61,6 +59,8 @@ public class ScoreboardController : MonoBehaviour
 
     public void AddNewScore(int newScore)
     {
+        SetActiveLevelScoreboard();
+
         int minScoreIndex = GetMinScoreIndex(scoreboard.scores);
         int minScore = scoreboard.scores[minScoreIndex];
         if (newScore > minScore)
@@ -70,6 +70,12 @@ public class ScoreboardController : MonoBehaviour
         WriteToJsonFile(scoreboard);
     }
 
+    private void SetActiveLevelScoreboard()
+    {
+        selectedLvlName = SceneManager.GetActiveScene().name;
+        SelectCurrentLevelScoreboard(selectedLvlName);
+        scoreboard = ReadFromJsonFile(selectedLvlName);
+    }
     private int GetMinScoreIndex(int[] scores)
     {
         int minScore = scores[0];
