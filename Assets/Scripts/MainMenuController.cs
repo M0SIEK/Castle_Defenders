@@ -11,7 +11,7 @@ public class MainMenuController : MonoBehaviour
     public void NewGame()
     {
         // Za³aduj pierwsz¹ scenê z gry
-        SceneManager.LoadScene("EndOfRoundScene");
+        SceneManager.LoadScene("Demo3Scene");
     }
 
     public void ExitGame()
