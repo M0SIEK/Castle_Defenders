@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,24 +10,27 @@ public class SettingsPanelController : MonoBehaviour
     public Toggle soundToggle;
     public Toggle musicToggle;
     public GameObject wavesController;
+    public AudioSource musicSource; // Dodaj referencjê do Audio Source
 
     private bool soundOn;
     private bool musicOn;
+
     private void Start()
     {
         settingsPanel.SetActive(false);
-        soundOn = PlayerPrefs.GetInt("sound") == 0 ? false : true;
-        musicOn = PlayerPrefs.GetInt("music") == 0 ? false : true;
-        
-        if(soundOn != soundToggle)
-        {
-            soundToggle.isOn = soundOn;
-        }
-        if(musicOn != musicToggle)
-        {
-            musicToggle.isOn = musicOn;
-        }
+
+        // Pobierz ustawienia z PlayerPrefs
+        soundOn = PlayerPrefs.GetInt("sound", 1) == 1; // Domyœlnie w³¹czone
+        musicOn = PlayerPrefs.GetInt("music", 1) == 1; // Domyœlnie w³¹czone
+
+        // Zsynchronizuj prze³¹czniki z ustawieniami
+        soundToggle.isOn = soundOn;
+        musicToggle.isOn = musicOn;
+
+        // Ustaw stan muzyki na podstawie ustawieñ
+        UpdateMusicState();
     }
+
     public void ShowSettingsPanel()
     {
         settingsPanel.SetActive(true);
@@ -38,7 +40,7 @@ public class SettingsPanelController : MonoBehaviour
     public void CloseSettingsPanel()
     {
         settingsPanel.SetActive(false);
-        if(wavesController.GetComponent<WavesController>().GetGameStarted())
+        if (wavesController.GetComponent<WavesController>().GetGameStarted())
         {
             ResumeGame();
         }
@@ -52,7 +54,7 @@ public class SettingsPanelController : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         Debug.Log("Load " + sceneName);
-        SceneManager.LoadScene(sceneName);   
+        SceneManager.LoadScene(sceneName);
     }
 
     public void OnSoundToggle()
@@ -65,6 +67,15 @@ public class SettingsPanelController : MonoBehaviour
     {
         musicOn = musicToggle.isOn;
         PlayerPrefs.SetInt("music", musicOn ? 1 : 0);
+        UpdateMusicState(); // Aktualizuj muzykê
+    }
+
+    private void UpdateMusicState()
+    {
+        if (musicSource != null)
+        {
+            musicSource.mute = !musicOn; // Wycisz lub w³¹cz muzykê
+        }
     }
 
     private void PauseGame()

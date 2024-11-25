@@ -751,6 +751,8 @@ MonoBehaviour:
   enemiesLeftText: {fileID: 6844639927558572749}
   waveText: {fileID: 2147250692969818146}
   summonNextWaveButton: {fileID: 1869214130}
+  enemyNumberInWave: 0
+  currentWave: 0
 --- !u!4 &524333221
 Transform:
   m_ObjectHideFlags: 0
@@ -2832,6 +2834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUIIv2
       objectReference: {fileID: 0}
+    - target: {fileID: 2813224103632317679, guid: c5c951f2b3858754390db90869c38433, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 7741213169243045446, guid: e4383c9585289714ab2876c0f42a1cb1, type: 3}
     - target: {fileID: 2813224103632317679, guid: c5c951f2b3858754390db90869c38433, type: 3}
       propertyPath: wavesController
       value: 
