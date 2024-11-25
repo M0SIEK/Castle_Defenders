@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 3eb2e0549d497c343a09c197b87b71e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - cursorImage: {fileID: 2800000, guid: 098901383555f534fa0518c492f0af4c, type: 3}
+  - freezeEffectPrefab: {fileID: 8913324683600064593, guid: c6ab995bb95442a4ba200c53e1925522, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
