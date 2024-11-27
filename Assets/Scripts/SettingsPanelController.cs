@@ -10,7 +10,7 @@ public class SettingsPanelController : MonoBehaviour
     public Toggle soundToggle;
     public Toggle musicToggle;
     public GameObject wavesController;
-    public AudioSource musicSource; // Dodaj referencjê do Audio Source
+    public AudioSource musicSource2;
 
     private bool soundOn;
     private bool musicOn;
@@ -72,9 +72,9 @@ public class SettingsPanelController : MonoBehaviour
 
     private void UpdateMusicState()
     {
-        if (musicSource != null)
+        if (musicSource2 != null)
         {
-            musicSource.mute = !musicOn; // Wycisz lub w³¹cz muzykê
+            musicSource2.mute = !musicOn; // Wycisz lub w³¹cz MusicSource2
         }
     }
 

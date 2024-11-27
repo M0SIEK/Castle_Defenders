@@ -513,7 +513,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de1566f7890db7546baa1292c31987db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicToggle: {fileID: 1792389004}
+  musicSource1: {fileID: 0}
+  musicSource2: {fileID: 344900006}
+--- !u!82 &344900006 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7741213169243045446, guid: e4383c9585289714ab2876c0f42a1cb1, type: 3}
+  m_PrefabInstance: {fileID: 1643658856}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &377649357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2370,6 +2376,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2006269337008598113, guid: fda3ecc8d7fc4b345a26c1b34e1d1e5b, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 344900006}
+    - target: {fileID: 2006269337008598113, guid: fda3ecc8d7fc4b345a26c1b34e1d1e5b, type: 3}
+      propertyPath: musicSource2
+      value: 
+      objectReference: {fileID: 344900006}
+    - target: {fileID: 2006269337008598113, guid: fda3ecc8d7fc4b345a26c1b34e1d1e5b, type: 3}
       propertyPath: wavesController
       value: 
       objectReference: {fileID: 1414590494}
@@ -2968,17 +2982,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
   m_PrefabInstance: {fileID: 1780975836}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1792389004 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5522158381793810491, guid: fda3ecc8d7fc4b345a26c1b34e1d1e5b, type: 3}
-  m_PrefabInstance: {fileID: 1428612537}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1811542759
 PrefabInstance:
   m_ObjectHideFlags: 0
