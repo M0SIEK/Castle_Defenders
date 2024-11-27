@@ -366,9 +366,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4576913862522640309, guid: 109c0682b1d64744b8f78b3da326a2fd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6457642782526229334, guid: 109c0682b1d64744b8f78b3da326a2fd, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457642782526229334, guid: 109c0682b1d64744b8f78b3da326a2fd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6976675776421157196, guid: 109c0682b1d64744b8f78b3da326a2fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

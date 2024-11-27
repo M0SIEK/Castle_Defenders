@@ -38,7 +38,7 @@ public class TowerDeleteOptionsPanel : MonoBehaviour
         if (screenPosition.y + panelHeight > Screen.height)
         {
             // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod wie¿¹
-            screenPosition.y = Camera.main.WorldToScreenPoint(tower.transform.position).y - (panelHeight * 0.6f);
+            screenPosition.y = Camera.main.WorldToScreenPoint(tower.transform.position).y - (panelHeight + 7f);
         }
 
         // Ograniczenie pozycji panelu do krawêdzi ekranu

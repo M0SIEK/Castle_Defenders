@@ -13,7 +13,7 @@ public class TowerSelectionMenu : MonoBehaviour
     public GameObject tower3Prefab;
 
     public float focusedHeightOffset = 60f; // Wysokoœæ panelu w trybie Play Focused
-    public float maximizedHeightOffset = 90f; // Wysokoœæ panelu w trybie Play Maximized
+    public float maximizedHeightOffset = 180f; // Wysokoœæ panelu w trybie Play Maximized
 
     public void Open_Close(EmptyField field)
     {
@@ -47,7 +47,7 @@ public class TowerSelectionMenu : MonoBehaviour
         if (screenPosition.y + menuHeight > Screen.height)
         {
             // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod polem
-            screenPosition.y = Camera.main.WorldToScreenPoint(field.transform.position).y - (menuHeight + 5);
+            screenPosition.y = Camera.main.WorldToScreenPoint(field.transform.position).y - (menuHeight + 30f);
         }
 
         // Ograniczenie pozycji panelu do krawêdzi ekranu
