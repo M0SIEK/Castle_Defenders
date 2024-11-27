@@ -1697,7 +1697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7577328571628563493, guid: 31eb5b973adac7e48a2c40d46e004e1c, type: 3}
       propertyPath: maximizedHeightOffset
-      value: 200
+      value: 240
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1850,7 +1850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1769651707328699858, guid: e3822aef068b49d4a92177cd8bfdd003, type: 3}
       propertyPath: maximizedHeightOffset
-      value: 195
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 4733032807082466575, guid: e3822aef068b49d4a92177cd8bfdd003, type: 3}
       propertyPath: m_Pivot.x
