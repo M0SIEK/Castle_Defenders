@@ -2234,6 +2234,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7340152637092221983, guid: 69c9a78252fcd824da14fdab6036cd34, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 450.1473
+      objectReference: {fileID: 0}
     - target: {fileID: 7749957664564990282, guid: 69c9a78252fcd824da14fdab6036cd34, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3009,6 +3013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6406410070141231300, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3025,6 +3033,10 @@ PrefabInstance:
     - target: {fileID: 4791732039109730701, guid: 14b6ce954c608724588026f21fa2e200, type: 3}
       propertyPath: m_Name
       value: TowerDeletePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4791732039109730701, guid: 14b6ce954c608724588026f21fa2e200, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5134781014449203366, guid: 14b6ce954c608724588026f21fa2e200, type: 3}
       propertyPath: m_Pivot.x
@@ -3202,6 +3214,10 @@ PrefabInstance:
     - target: {fileID: 5650746467588854645, guid: 2859da326067d514ab8002940ee72038, type: 3}
       propertyPath: m_Name
       value: TowerPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650746467588854645, guid: 2859da326067d514ab8002940ee72038, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
