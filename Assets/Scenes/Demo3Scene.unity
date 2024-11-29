@@ -2914,6 +2914,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1900276919654230948, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
+      propertyPath: EmptyFields
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1900276919654230948, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
       propertyPath: tower1Prefab
       value: 
       objectReference: {fileID: 382460918}
@@ -2925,6 +2929,10 @@ PrefabInstance:
       propertyPath: tower3Prefab
       value: 
       objectReference: {fileID: 1877397830}
+    - target: {fileID: 1900276919654230948, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
+      propertyPath: otherUIElements
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3224306375008742092, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
       propertyPath: m_Pivot.x
       value: 0
