@@ -45,7 +45,6 @@ public class EnemyController : MonoBehaviour
         SetDirection();
 
         var randTranslation = UnityEngine.Random.Range(-0.35f, 0.35f);
-        Debug.Log(direction);
         //ustawienie poczatkowej pozycji
         this.transform.position = (direction == Direction.right || direction == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
 
