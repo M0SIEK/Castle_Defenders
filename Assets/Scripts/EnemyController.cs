@@ -44,10 +44,10 @@ public class EnemyController : MonoBehaviour
         //ustawienie kierunku poruszania sie
         SetDirection();
 
-        var randTranslation = UnityEngine.Random.Range(-1.0f, 1.0f);
-
+        var randTranslation = UnityEngine.Random.Range(-0.35f, 0.35f);
+        Debug.Log(direction);
         //ustawienie poczatkowej pozycji
-        this.transform.position = (currentDirection == Direction.right || currentDirection == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
+        this.transform.position = (direction == Direction.right || direction == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
 
         //InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
     }
