@@ -433,21 +433,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f1d074a0bf9ee45ba09f6293b147e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonLVL1InitialNumber: 5
+  skeletonLVL1InitialNumber: 15
   skeletonLVL2InitialNumber: 2
-  goblinLVL1InitialNumber: 3
-  goblinLVL2InitialNumber: 1
-  mushroomLVL1InitialNumber: 1
-  numberOfWaves: 5
-  timeBetweenWavesInSeconds: 30
+  goblinLVL1InitialNumber: 2
+  goblinLVL2InitialNumber: 0
+  mushroomLVL1InitialNumber: 0
+  numberOfWaves: 10
+  timeBetweenWavesInSeconds: 50
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
   enableGoblinLVL1: 1
   enableGoblinLVL2: 1
   enableMushroomLVL1: 1
-  direction: 1
-  startPoint: {fileID: 0}
-  nextTarget: {fileID: 0}
+  direction: 0
+  startPoint: {fileID: 2013519231}
+  nextTarget: {fileID: 222010527}
   skeletonLVL1Prefab: {fileID: 4039129103881877844, guid: 4742c59307e9ddd4c8838069e30f04e1, type: 3}
   skeletonLVL2Prefab: {fileID: 6579262375783922334, guid: ef2c3dea753a1bc478b7e80e86ce3dae, type: 3}
   goblinLVL1Prefab: {fileID: 115634939147391791, guid: 7b950a0c2e4b4b347a720173754855d8, type: 3}
