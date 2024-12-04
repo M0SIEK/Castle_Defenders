@@ -8,6 +8,12 @@ public class EmptyField : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // Blokuj interakcjê, jeœli panel ustawieñ jest aktywny
+        if (SettingsPanelController.SettingsPanelActive)
+        {
+            return;
+        }
+
         // Prze³¹czanie stanu menu wyboru wie¿y
         towerSelectionMenu.Open_Close(this);
     }

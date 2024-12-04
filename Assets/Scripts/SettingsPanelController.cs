@@ -11,6 +11,7 @@ public class SettingsPanelController : MonoBehaviour
     public Toggle musicToggle;
     public GameObject wavesController;
     public AudioSource musicSource2;
+    public static bool SettingsPanelActive { get; private set; } = false;
 
     private bool soundOn;
     private bool musicOn;
@@ -34,12 +35,14 @@ public class SettingsPanelController : MonoBehaviour
     public void ShowSettingsPanel()
     {
         settingsPanel.SetActive(true);
+        SettingsPanelActive = true; // Ustaw flagê
         PauseGame();
     }
 
     public void CloseSettingsPanel()
     {
         settingsPanel.SetActive(false);
+        SettingsPanelActive = false; // Wy³¹cz flagê
         if (wavesController.GetComponent<WavesController>().GetGameStarted())
         {
             ResumeGame();
