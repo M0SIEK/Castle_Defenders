@@ -695,6 +695,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 741655379}
     m_Modifications:
+    - target: {fileID: 637300480591035594, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3226082391790750473, guid: 21a740276c4e72f4aaf3aab02db1d467, type: 3}
+    - target: {fileID: 637300480591035594, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.054006577
@@ -735,6 +743,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2973270693454182304, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2973270693454182304, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: lifeTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: fireRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 382460917}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5648453181566887534, guid: 11db739663cef4a919647a61cae03d68, type: 3}
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: towerOptionsPanel
       value: 
@@ -752,7 +784,8 @@ PrefabInstance:
       value: Tower 1 - level 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7412366741460139067, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
@@ -1760,7 +1793,7 @@ GameObject:
   - component: {fileID: 1215805144}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3084,6 +3117,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 741655379}
     m_Modifications:
+    - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1948910775}
+    - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 7645075137127772892, guid: acbc0e399346d41eba0c3e42e4ef0fe9, type: 3}
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: towerOptionsPanel
       value: 

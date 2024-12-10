@@ -14,13 +14,13 @@ public enum Direction
 
 public class EnemyController : MonoBehaviour
 {
-    public float hitPoints = 100f;
-    public float maxHitPoints = 100f;
-    public float speed = 0.02f;
-    public Transform startPoint;
-    public Transform nextTarget;
-    public HitPointsBarController hitPointsBarController;
-    public Animator animator;
+    public float hitPoints = 100f; // Aktualne punkty życia przeciwnika
+    public float maxHitPoints = 100f; // Maksymalne punkty życia przeciwnika
+    public float speed = 0.02f; // Prędkość poruszania się przeciwnika
+    public Transform startPoint; // Punkt początkowy
+    public Transform nextTarget; // Kolejny punkt trasy
+    public HitPointsBarController hitPointsBarController; // Kontroler paska życia
+    public Animator animator; // Animator przeciwnika
 
     private Direction direction;
     private Direction currentDirection;
@@ -28,7 +28,8 @@ public class EnemyController : MonoBehaviour
     private bool isDead = false;
     private WavesController wavesController;
     private HitPointsBarController playerHitPointsBarController;
-    private static float playerHitPoints=1000;
+    private static float playerHitPoints = 1000;
+
     void Start()
     {
         hitPointsBarController = GetComponentInChildren<HitPointsBarController>();
@@ -41,63 +42,52 @@ public class EnemyController : MonoBehaviour
         currentTargetPosition = startPoint.position;
         currentDirection = Direction.right;
 
-        //ustawienie kierunku poruszania sie
         SetDirection();
 
         var randTranslation = UnityEngine.Random.Range(-0.35f, 0.35f);
-        //ustawienie poczatkowej pozycji
-        this.transform.position = (direction == Direction.right || direction == Direction.left) ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z) : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
 
-        //InvokeRepeating("OnDamage", 10f, 8f); //tylko do testowania
+        // Początkowa pozycja przeciwnika
+        this.transform.position = (direction == Direction.right || direction == Direction.left)
+            ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z)
+            : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
     }
 
     void FixedUpdate()
     {
-        //przemieszczenie sie przeciwnika jezeli zyje
         if (!isDead)
-        { 
+        {
             MoveOnPath();
         }
     }
 
     public void OnTargetReached(Transform nextPathTarget)
     {
-        if(nextPathTarget != null)
+        if (nextPathTarget != null)
         {
             currentTargetPosition = nextPathTarget.position == nextTarget.position ? currentTargetPosition : nextTarget.position;
             nextTarget = nextPathTarget;
             SetDirection();
-        } else
+        }
+        else
         {
             Passed();
         }
     }
 
-    //ponizsza metoda OnDamage() sluzy do testowania otrzymywania obrazen do czasu implementacji atakow wiezy
-    public void OnDamage()
-    {
-        float damage = 50f;
-        hitPoints -= damage;
-        hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
-        animator.SetTrigger("injured");
-        if(hitPoints <= 0)
-        {
-            isDead = true;
-            animator.SetTrigger("dead");
-        }
-    }
-
-    //wlasciwa metoda OnDamage(float) do obslugi otrzymania obrazen
     public void OnDamage(float damage)
     {
-        Debug.Log("Damage Taken");
+        if (isDead) return;
+
+        Debug.Log("Enemy took damage: " + damage);
         hitPoints -= damage;
         hitPointsBarController.UpdateHitPointsBar(hitPoints, maxHitPoints);
         animator.SetTrigger("injured");
+
         if (hitPoints <= 0)
         {
             isDead = true;
             animator.SetTrigger("dead");
+            Invoke(nameof(Dead), 1f); // Czekaj na zakończenie animacji przed usunięciem obiektu
         }
     }
 
@@ -115,13 +105,12 @@ public class EnemyController : MonoBehaviour
         {
             direction = Direction.bottom;
         }
-        else if (nextTarget.position.y > currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)  
+        else if (nextTarget.position.y > currentTargetPosition.y && nextTarget.position.x == currentTargetPosition.x)
         {
             direction = Direction.top;
         }
-        
-        //odbicie postaci w osi X gdy zmieniany jest kierunek na przeciwny
-        if(currentDirection == Direction.left && direction == Direction.right || currentDirection == Direction.right && direction == Direction.left)
+
+        if (currentDirection == Direction.left && direction == Direction.right || currentDirection == Direction.right && direction == Direction.left)
         {
             Vector3 newScale = new Vector3(this.transform.localScale.x * (-1), this.transform.localScale.y, this.transform.localScale.z);
             this.transform.localScale = newScale;

@@ -77,30 +77,40 @@ public class WavesController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(timeToNextWave <= 0f)
+        if (timeToNextWave <= 0f && currentWave < numberOfWaves)
         {
-            if (currentWave < numberOfWaves)
-            {
-                SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
-            }
+            Debug.Log("Time to summon the next wave!");
+            SummonNextWave(skeletonLVL1CurrentWaveNumber, skeletonLVL2CurrentWaveNumber, goblinLVL1CurrentWaveNumber, goblinLVL2CurrentWaveNumber, mushroomLVL1CurrentWaveNumber);
         }
+
         CheckSummonNextWaveButtonEnable();
         UpdateTimer();
     }
 
     public void DecrementEnemyNumber()
     {
-        enemyNumberInWave--;
-        UpdateEnemiesLeftText(enemyNumberInWave);
+        if (enemyNumberInWave > 0)
+        {
+            enemyNumberInWave--;
+            UpdateEnemiesLeftText(enemyNumberInWave);
+            Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}");
+        }
+
+        if (enemyNumberInWave <= 0 && currentWave >= numberOfWaves)
+        {
+            Debug.Log("All waves cleared!");
+        }
     }
 
     public void OnSummonNextWaveButtonClicked()
     {
-        if (!gameStarted) 
+        if (!gameStarted)
         {
             gameStarted = true;
             Time.timeScale = 1;
         }
+
+        Debug.Log("Next wave button clicked!");
         timeToNextWave = 0;
         summonNextWaveButton.interactable = false;
     }
@@ -144,45 +154,48 @@ public class WavesController : MonoBehaviour
 
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
     {
+        Debug.Log($"Summoning next wave: Wave {currentWave + 1}/{numberOfWaves}");
+
         UpdateWaveNumber();
         UpdateEnemyNumber();
+
         startPointTranslation = startPoint;
+
         while (mushroomLVL1Number > 0)
         {
             SummonEnemy(mushroomLVL1Prefab);
             mushroomLVL1Number--;
         }
 
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (skeletonLVL1Number > 0)
         {
             SummonEnemy(skeletonLVL1Prefab);
             skeletonLVL1Number--;
         }
 
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (skeletonLVL2Number > 0)
         {
             SummonEnemy(skeletonLVL2Prefab);
             skeletonLVL2Number--;
         }
 
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (goblinLVL1Number > 0)
         {
             SummonEnemy(goblinLVL1Prefab);
             goblinLVL1Number--;
         }
 
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction, 2.0f, 3.0f);
         while (goblinLVL2Number > 0)
         {
             SummonEnemy(goblinLVL2Prefab);
             goblinLVL2Number--;
         }
+
         timeToNextWave = currentWave < numberOfWaves ? timeBetweenWavesInSeconds : 0;
         enemyNumberInNextWave = NextWaveEnemiesNumber();
         startPoint.position = startPointCoordinates;
+
+        Debug.Log($"Wave {currentWave} spawned with {enemyNumberInWave} enemies.");
     }
 
     private void UpdateWaveNumber()
@@ -199,12 +212,27 @@ public class WavesController : MonoBehaviour
 
     private void SummonEnemy(GameObject enemyPrefab)
     {
+        if (enemyPrefab == null)
+        {
+            Debug.LogError("Enemy prefab is null!");
+            return;
+        }
+
         GameObject newEnemy = Instantiate(enemyPrefab, startPoint.position, Quaternion.identity, enemiesParentObject.transform);
         EnemyController scriptEnemyController = newEnemy.GetComponent<EnemyController>();
-        scriptEnemyController.startPoint = this.startPoint;
-        scriptEnemyController.nextTarget = this.nextTarget;
-        newEnemy.GetComponent<Transform>().position = startPointTranslation.position;
-        startPointTranslation.position = startPointTranslation.position + GetRandomTranslation(direction);
+
+        if (scriptEnemyController != null)
+        {
+            scriptEnemyController.startPoint = this.startPoint;
+            scriptEnemyController.nextTarget = this.nextTarget;
+        }
+        else
+        {
+            Debug.LogError($"Enemy prefab {enemyPrefab.name} does not have an EnemyController component!");
+        }
+
+        newEnemy.transform.position = startPointTranslation.position;
+        startPointTranslation.position += GetRandomTranslation(direction);
     }
 
     private Vector3 GetRandomTranslation(Direction dir, float minValue = 0f, float maxValue=1f)

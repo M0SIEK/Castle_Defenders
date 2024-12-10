@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public TowerOptionsPanel towerOptionsPanel; // Panel opcji wieøy
-    public TowerDeleteOptionsPanel towerDeleteOptionsPanel; // Panel usuwania wieøy
-    private EmptyField originalField; // Pole, na ktÛrym wieøa zosta≥a postawiona
-    private bool isUpgraded = false; // Flaga do sprawdzania, czy wieøa zosta≥a ulepszona
+    public TowerOptionsPanel towerOptionsPanel; // Panel opcji wie≈ºy
+    public TowerDeleteOptionsPanel towerDeleteOptionsPanel; // Panel usuwania wie≈ºy
+    private EmptyField originalField; // Pole, na kt√≥rym wie≈ºa zosta≈Ça postawiona
+    private bool isUpgraded = false; // Flaga do sprawdzania, czy wie≈ºa zosta≈Ça ulepszona
     private MonoBehaviour activeOptionsPanel; // Przechowuje aktywny panel (TowerOptionsPanel lub TowerDeleteOptionsPanel)
-    public int level = 1; // Zmienna reprezentujπca poziom wieøy, domyúlnie ustawiona na 1
-    public GameObject upgradedTowerPrefab; // Prefab ulepszonej wieøy (do przypisania w Unity)
+    public int level = 1; // Zmienna reprezentujƒÖca poziom wie≈ºy, domy≈õlnie ustawiona na 1
+    public GameObject upgradedTowerPrefab; // Prefab ulepszonej wie≈ºy (do przypisania w Unity)
+    public GameObject projectilePrefab; // Prefab pocisku
+    public float range = 10f; // Zasiƒôg ataku
+    public float fireRate = 1f; // Czas miƒôdzy strza≈Çami (w sekundach)
+    private float fireCountdown = 0f; // Licznik do kolejnego strza≈Çu
+    private Transform target; // Cel dla pocisku
+    public Transform firePoint;
+    public bool isTowerPlaced = false; // Flaga sprawdzajƒÖca, czy wie≈ºa jest postawiona
 
     private void OnMouseDown()
     {
-        // W zaleønoúci od poziomu wieøy (isUpgraded) otwieramy odpowiedni panel
+        // W zale≈ºno≈õci od poziomu wie≈ºy (isUpgraded) otwieramy odpowiedni panel
         if (level == 3)
         {
             activeOptionsPanel = towerDeleteOptionsPanel;
@@ -38,49 +45,127 @@ public class Tower : MonoBehaviour
         }
     }
 
-    // Przypisanie pola, na ktÛrym wieøa zosta≥a postawiona
+    // Przypisanie pola, na kt√≥rym wie≈ºa zosta≈Ça postawiona
     public void SetOriginalField(EmptyField field)
     {
         originalField = field;
     }
 
-    // Funkcja usuwajπca wieøÍ
+    // Funkcja usuwajƒÖca wie≈ºƒô
     public void DeleteTower()
     {
-        // Aktywujemy ponownie pole, na ktÛrym wieøa zosta≥a postawiona
+        isTowerPlaced = false; // Wie≈ºa przestaje dzia≈Çaƒá
+        // Aktywujemy ponownie pole, na kt√≥rym wie≈ºa zosta≈Ça postawiona
         if (originalField != null)
         {
-            originalField.gameObject.SetActive(true); // Pole staje siÍ aktywne
+            originalField.gameObject.SetActive(true); // Pole staje siƒô aktywne
         }
 
-        Destroy(gameObject); // Zniszcz wieøÍ
+        Destroy(gameObject); // Zniszcz wie≈ºƒô
         if (activeOptionsPanel != null)
         {
             activeOptionsPanel.GetType().GetMethod("Close")?.Invoke(activeOptionsPanel, null); // Zamknij odpowiedni panel
         }
     }
 
-    // Funkcja do ulepszania wieøy
+    // Funkcja do ulepszania wie≈ºy
     public void UpgradeTower()
     {
-        // Tworzymy ulepszonπ wersjÍ wieøy na tej samej pozycji
+        // Tworzymy ulepszonƒÖ wersjƒô wie≈ºy na tej samej pozycji
         if (upgradedTowerPrefab != null)
         {
             GameObject upgradedTower = Instantiate(upgradedTowerPrefab, transform.position, transform.rotation);
 
-            // Przypisujemy pole do nowej wieøy i ustawiamy jπ jako ulepszonπ
+            // Przypisujemy pole do nowej wie≈ºy i ustawiamy jƒÖ jako ulepszonƒÖ
             Tower towerScript = upgradedTower.GetComponent<Tower>();
             if (towerScript != null)
             {
                 towerScript.SetOriginalField(originalField);
-                towerScript.level = level + 1; // ZwiÍkszamy poziom wieøy
+                towerScript.level = level + 1; // Zwiƒôkszamy poziom wie≈ºy
+                towerScript.isTowerPlaced = true; // Ustawiamy nowƒÖ wie≈ºƒô jako postawionƒÖ
             }
 
-            Destroy(gameObject); // Zniszcz stary obiekt wieøy
+            Destroy(gameObject); // Zniszcz stary obiekt wie≈ºy
             if (towerOptionsPanel != null)
             {
                 towerOptionsPanel.Close(); // Zamknij panel opcji
             }
         }
+    }
+
+    private void Update()
+    {
+        // Logika dzia≈Ça tylko, gdy wie≈ºa jest postawiona
+        if (isTowerPlaced)
+        {
+            UpdateTarget();
+
+            if (target != null && fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate; // Ustawienie czasu do kolejnego strza≈Çu
+            }
+
+            fireCountdown -= Time.deltaTime; // Odliczanie czasu
+        }
+    }
+
+    void UpdateTarget()
+    {
+        if (!isTowerPlaced) return; // Nie aktualizuj celu, je≈õli wie≈ºa nie jest postawiona
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, range); // U≈ºyj OverlapCircleAll dla fizyki 2D
+
+        float shortestDistance = Mathf.Infinity;
+        Transform nearestEnemy = null;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                float distanceToEnemy = Vector3.Distance(transform.position, collider.transform.position);
+                if (distanceToEnemy < shortestDistance)
+                {
+                    shortestDistance = distanceToEnemy;
+                    nearestEnemy = collider.transform;
+                }
+            }
+        }
+
+        if (nearestEnemy != null)
+        {
+            target = nearestEnemy;
+        }
+        else
+        {
+            target = null;
+        }
+    }
+
+    void Shoot()
+    {
+        // Logika strzelania dzia≈Ça tylko, gdy wie≈ºa jest postawiona
+        if (isTowerPlaced && projectilePrefab != null && target != null)
+        {
+            GameObject projectileGO = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+            Projectile projectile = projectileGO.GetComponent<Projectile>();
+
+            if (projectile != null)
+            {
+                Debug.Log("Utworzono pocisk: " + projectileGO.name);
+                projectile.Seek(target);
+            }
+            else
+            {
+                Debug.LogError("Brak skryptu 'Projectile' na pocisku!");
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Wizualizacja zasiƒôgu wie≈ºy
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }
