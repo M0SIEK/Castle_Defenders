@@ -617,6 +617,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 741655379}
     m_Modifications:
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: towerOptionsPanel
       value: 
       objectReference: {fileID: 1769651708206607478}
@@ -634,11 +638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.4500217
+      value: -0.80696106
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.30471516
+      value: 10.814656
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -705,11 +709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.054006577
+      value: -2.2029762
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.28799534
+      value: 10.831376
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -764,6 +768,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382460917}
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 5648453181566887534, guid: 11db739663cef4a919647a61cae03d68, type: 3}
@@ -809,11 +817,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.5711384
+      value: 0.31415558
       objectReference: {fileID: 0}
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6763878
+      value: 14.795759
       objectReference: {fileID: 0}
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -850,6 +858,10 @@ PrefabInstance:
     - target: {fileID: 4023160441776666643, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_Name
       value: Tower 3 - level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: towerOptionsPanel
@@ -900,11 +912,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3813839
+      value: -0.8755989
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6858368
+      value: 12.805208
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1465,6 +1477,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 741655379}
     m_Modifications:
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: towerOptionsPanel
       value: 
       objectReference: {fileID: 1769651708206607478}
@@ -1474,11 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 7577328572753634454}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.868576
+      value: 0.61159325
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32759476
+      value: 10.791777
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1631,11 +1647,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7999372
+      value: 0.54295444
       objectReference: {fileID: 0}
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7087164
+      value: 12.828088
       objectReference: {fileID: 0}
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1672,6 +1688,10 @@ PrefabInstance:
     - target: {fileID: 257823394440185456, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_Name
       value: Tower 2 - level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: towerOptionsPanel
@@ -2784,6 +2804,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 741655379}
     m_Modifications:
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: towerOptionsPanel
       value: 
       objectReference: {fileID: 1769651708206607478}
@@ -2797,11 +2821,11 @@ PrefabInstance:
       objectReference: {fileID: 7577328572753634454}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.266983
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6306286
+      value: 14.75
       objectReference: {fileID: 0}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3040,11 +3064,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.039111137
+      value: -2.296094
       objectReference: {fileID: 0}
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.6423378
+      value: 14.761709
       objectReference: {fileID: 0}
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3078,6 +3102,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1877397831}
+    - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 5778863575447561773, guid: 1ca1cce3d2fa14e6482ba0839a13a01d, type: 3}
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: towerOptionsPanel
       value: 
@@ -3122,6 +3158,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1948910775}
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
+      propertyPath: isTowerPlaced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 7645075137127772892, guid: acbc0e399346d41eba0c3e42e4ef0fe9, type: 3}
@@ -3143,11 +3183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.030888557
+      value: -2.2260942
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6123371
+      value: 12.731709
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.z
