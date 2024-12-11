@@ -51,6 +51,10 @@ public class SettingsPanelController : MonoBehaviour
 
     public void RestartLevel()
     {
+        // Wy³¹cz panel ustawieñ przed restartem
+        settingsPanel.SetActive(false);
+        SettingsPanelActive = false;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
