@@ -37,7 +37,7 @@ public class MainMenuController : MonoBehaviour
     public void NewGame()
     {
         // Za³aduj pierwsz¹ scenê z gry
-        SceneManager.LoadScene("Demo3Scene");
+        SceneManager.LoadScene("Level 1");
     }
 
     public void OpenLevelsPanel()

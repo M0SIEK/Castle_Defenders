@@ -11,7 +11,7 @@ public class LevelsPanelController : MonoBehaviour
 
     public void StartLevel1()
     {
-        SceneManager.LoadScene("Demo3Scene"); // Za³aduj scenê Level1Scene
+        SceneManager.LoadScene("Level 1"); // Za³aduj scenê Level1Scene
     }
 
     public void StartLevel2()
