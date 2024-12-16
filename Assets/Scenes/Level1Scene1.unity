@@ -1796,7 +1796,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 8c09c946fc5f48e438668c37e065c27b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.52156866}
   m_FlipX: 0
@@ -2931,17 +2931,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f1d074a0bf9ee45ba09f6293b147e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonLVL1InitialNumber: 5
-  skeletonLVL2InitialNumber: 2
+  skeletonLVL1InitialNumber: 3
+  skeletonLVL2InitialNumber: 0
   goblinLVL1InitialNumber: 3
-  goblinLVL2InitialNumber: 1
+  goblinLVL2InitialNumber: 0
   mushroomLVL1InitialNumber: 1
   numberOfWaves: 5
   timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
-  enableSkeletonLVL2: 1
+  enableSkeletonLVL2: 0
   enableGoblinLVL1: 1
-  enableGoblinLVL2: 1
+  enableGoblinLVL2: 0
   enableMushroomLVL1: 1
   direction: 1
   startPoint: {fileID: 1495178252}
@@ -5203,7 +5203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792954257149689517, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4966739972586041641, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Creator
@@ -5307,7 +5307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7735589129830023250, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7998103658368086572, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Creator
@@ -5319,7 +5319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8137535821038448839, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_SortingOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8192339747732158963, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Creator
@@ -5736,6 +5736,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 858386654881705771, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_text
+      value: LVL 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1337015234653594216, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
