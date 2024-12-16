@@ -1604,7 +1604,7 @@ PrefabInstance:
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -1612,7 +1612,7 @@ PrefabInstance:
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 1121867583050367865, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_Name
       value: Tower 2 - level 2
@@ -1853,7 +1853,7 @@ PrefabInstance:
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -1861,7 +1861,7 @@ PrefabInstance:
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 8982859279604089080, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_Name
       value: Tower 1 - level 1
@@ -3490,6 +3490,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2859da326067d514ab8002940ee72038, type: 3}
+--- !u!114 &1194503939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4803679817240598091, guid: 2859da326067d514ab8002940ee72038, type: 3}
+  m_PrefabInstance: {fileID: 1194503938}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c40586dfb0b7b4ca7096ad43efdef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1200962535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3553,11 +3564,11 @@ PrefabInstance:
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3679,7 +3690,7 @@ PrefabInstance:
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -3687,7 +3698,7 @@ PrefabInstance:
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99
@@ -3756,11 +3767,11 @@ PrefabInstance:
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 1388503090234821737, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -3906,6 +3917,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1884285224737678536, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -211.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884285224737678536, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -89.63
+      objectReference: {fileID: 0}
     - target: {fileID: 1900276919654230948, guid: 9e2ded9437673a948b6e57ce0f189475, type: 3}
       propertyPath: tower1Prefab
       value: 
@@ -4742,7 +4761,7 @@ PrefabInstance:
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -4750,7 +4769,7 @@ PrefabInstance:
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 2235243439210268830, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_Name
       value: Tower 2 - level 1
@@ -4958,6 +4977,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14b6ce954c608724588026f21fa2e200, type: 3}
+--- !u!114 &1740689957 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6318468653113347535, guid: 14b6ce954c608724588026f21fa2e200, type: 3}
+  m_PrefabInstance: {fileID: 1740689956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c9cc8a7af15e14b9ae5d7e990d4c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1754744698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5218,7 +5248,7 @@ PrefabInstance:
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -5226,7 +5256,7 @@ PrefabInstance:
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 2828806523684620368, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_Name
       value: Tower 1 - level 2
@@ -5494,11 +5524,11 @@ PrefabInstance:
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 8960464344303970341, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -5575,7 +5605,7 @@ PrefabInstance:
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: towerOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1194503939}
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: upgradedTowerPrefab
       value: 
@@ -5583,7 +5613,7 @@ PrefabInstance:
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1740689957}
     - target: {fileID: 6749914388532724559, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_Name
       value: Tower 3 - level 1
