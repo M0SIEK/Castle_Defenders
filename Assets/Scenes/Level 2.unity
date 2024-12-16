@@ -1617,6 +1617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 2 - level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2066059368537731947, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8755989
@@ -1764,7 +1768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 637300480591035594, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 637300480591035594, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_SortingLayerID
@@ -3538,6 +3542,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 3 - level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4688535234419666213, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -3724,6 +3732,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 3 - level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6034406702571788659, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3748,6 +3760,10 @@ PrefabInstance:
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1388503090234821737, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4741,7 +4757,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5584262841986570814, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalScale.x
@@ -5255,6 +5271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9132263790785299207, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5479,6 +5499,10 @@ PrefabInstance:
       propertyPath: towerDeleteOptionsPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8960464344303970341, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5566,7 +5590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337780743233178283, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
