@@ -35,14 +35,18 @@ public class WavesController : MonoBehaviour
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI enemiesLeftText;
     public TextMeshProUGUI waveText;
-    public Button summonNextWaveButton; 
-  
+    public TextMeshProUGUI scoreText; // Dodaj referencję do TextMeshPro dla punktów
+    public TextMeshProUGUI scoreboardTableText; // Referencja do ScoreboardTableText
+    public Button summonNextWaveButton;
+
+
 
     private int skeletonLVL1CurrentWaveNumber;
     private int skeletonLVL2CurrentWaveNumber;
     private int goblinLVL1CurrentWaveNumber;
     private int goblinLVL2CurrentWaveNumber;
     private int mushroomLVL1CurrentWaveNumber;
+    private int score = 0; // Zmienna do przechowywania wyniku
 
     private const float skeletonLVL1NumberFactor = 0.2f;
     private const float skeletonLVL2NumberFactor = 0.1f;
@@ -66,14 +70,21 @@ public class WavesController : MonoBehaviour
         goblinLVL2CurrentWaveNumber = goblinLVL2InitialNumber;
         mushroomLVL1CurrentWaveNumber = mushroomLVL1InitialNumber;
 
-        enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
+        enemyNumberInNextWave = skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber
+            + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
+
         timeToNextWave = 1;
         startPointCoordinates = startPoint.position;
         summonNextWaveButton.interactable = true;
         Time.timeScale = 0;
         gameStarted = false;
+
         waveText.GetComponent<TextMeshProUGUI>().text = currentWave.ToString() + "/" + numberOfWaves.ToString();
+
+        UpdateScoreText(); // Dodaj to tutaj, aby wyświetlić początkowy wynik
     }
+
+
 
     void FixedUpdate()
     {
@@ -87,18 +98,30 @@ public class WavesController : MonoBehaviour
         UpdateTimer();
     }
 
-    public void DecrementEnemyNumber()
+    public void DecrementEnemyNumber(float scoreMultiplier = 1.0f)
     {
         if (enemyNumberInWave > 0)
         {
             enemyNumberInWave--;
+            score += (int)(10 * scoreMultiplier); // 10 to bazowa wartość punktów
             UpdateEnemiesLeftText(enemyNumberInWave);
-            Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}");
+            UpdateScoreText();
+            Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}, Score: {score}");
         }
 
         if (enemyNumberInWave <= 0 && currentWave >= numberOfWaves)
         {
             Debug.Log("All waves cleared!");
+
+            // Aktualizuj ScoreboardTableText
+            if (scoreboardTableText != null)
+            {
+                scoreboardTableText.text = $"1. {score}"; // Zapisz wynik jako pierwszy rekord
+            }
+            else
+            {
+                Debug.LogError("ScoreboardTableText is not assigned in the inspector!");
+            }
         }
     }
 
@@ -146,11 +169,27 @@ public class WavesController : MonoBehaviour
             string secondsText = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
             string minutesText = minutes < 10 ? "0" + minutes.ToString() : minutes.ToString();
             timerText.GetComponent<TextMeshProUGUI>().text = $"{minutesText}:{secondsText}";
-        } else
+        }
+        else
         {
             timerText.GetComponent<TextMeshProUGUI>().text = "00:00";
         }
     }
+
+
+    private void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + score;
+        }
+        else
+        {
+            Debug.LogError("ScoreText UI element is not assigned!");
+        }
+    }
+
+
 
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
     {
@@ -235,7 +274,7 @@ public class WavesController : MonoBehaviour
         startPointTranslation.position += GetRandomTranslation(direction);
     }
 
-    private Vector3 GetRandomTranslation(Direction dir, float minValue = 0f, float maxValue=1f)
+    private Vector3 GetRandomTranslation(Direction dir, float minValue = 0f, float maxValue = 1f)
     {
         switch (dir)
         {
@@ -251,32 +290,32 @@ public class WavesController : MonoBehaviour
     {
         if (enableSkeletonLVL1)
         {
-            skeletonLVL1CurrentWaveNumber = (currentWave >= 2 && skeletonLVL1CurrentWaveNumber == 0) ? 
-                5 : 
+            skeletonLVL1CurrentWaveNumber = (currentWave >= 2 && skeletonLVL1CurrentWaveNumber == 0) ?
+                5 :
                 skeletonLVL1CurrentWaveNumber + (int)Math.Ceiling(skeletonLVL1NumberFactor * skeletonLVL1CurrentWaveNumber);
         }
         if (enableSkeletonLVL2)
         {
-            skeletonLVL2CurrentWaveNumber = (currentWave >= 3 && skeletonLVL2CurrentWaveNumber == 0) ? 
-                4 : 
+            skeletonLVL2CurrentWaveNumber = (currentWave >= 3 && skeletonLVL2CurrentWaveNumber == 0) ?
+                4 :
                 skeletonLVL2CurrentWaveNumber + (int)Math.Ceiling(skeletonLVL2NumberFactor * skeletonLVL2CurrentWaveNumber);
         }
         if (enableGoblinLVL1)
         {
-            goblinLVL1CurrentWaveNumber = (currentWave >= 5 && goblinLVL1CurrentWaveNumber == 0) ? 
-                5 : 
+            goblinLVL1CurrentWaveNumber = (currentWave >= 5 && goblinLVL1CurrentWaveNumber == 0) ?
+                5 :
                 goblinLVL1CurrentWaveNumber + (int)Math.Ceiling(goblinLVL1NumberFactor * goblinLVL1CurrentWaveNumber);
         }
         if (enableGoblinLVL2)
         {
-            goblinLVL2CurrentWaveNumber = (currentWave >= 7 && goblinLVL2CurrentWaveNumber == 0) ? 
-                4 : 
+            goblinLVL2CurrentWaveNumber = (currentWave >= 7 && goblinLVL2CurrentWaveNumber == 0) ?
+                4 :
                 goblinLVL2CurrentWaveNumber + (int)Math.Ceiling(goblinLVL2NumberFactor * goblinLVL2CurrentWaveNumber);
         }
         if (enableMushroomLVL1)
         {
-            mushroomLVL1CurrentWaveNumber = (currentWave >= 9 && mushroomLVL1CurrentWaveNumber == 0) ? 
-                2 : 
+            mushroomLVL1CurrentWaveNumber = (currentWave >= 9 && mushroomLVL1CurrentWaveNumber == 0) ?
+                2 :
                 mushroomLVL1CurrentWaveNumber + (int)Math.Ceiling(mushroomLVL1NumberFactor * mushroomLVL1CurrentWaveNumber);
         }
         Debug.Log("Skeleton LVL_1: " + skeletonLVL1CurrentWaveNumber.ToString());

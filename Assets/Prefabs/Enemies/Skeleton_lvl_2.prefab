@@ -303,6 +303,7 @@ MonoBehaviour:
   hitPoints: 200
   maxHitPoints: 200
   speed: 0.02
+  scoreMultiplier: 2
   startPoint: {fileID: 0}
   nextTarget: {fileID: 0}
   hitPointsBarController: {fileID: 0}
