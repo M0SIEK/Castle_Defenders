@@ -3853,6 +3853,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1819965447854054556, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1611908119803763627}
+    - target: {fileID: 1819965447854054556, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152966687617292933, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7327823951801227624}
+    - target: {fileID: 4152966687617292933, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274943023941835382, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7327823951801227624}
+    - target: {fileID: 5274943023941835382, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
     - target: {fileID: 7151808945051997410, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
       propertyPath: hitPointsBar
       value: 
@@ -3872,6 +3896,22 @@ PrefabInstance:
     - target: {fileID: 7955977571456647441, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
       propertyPath: m_PlayOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819510195368100359, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1611908119803763627}
+    - target: {fileID: 8819510195368100359, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8930291605599893733, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1611908119803763627}
+    - target: {fileID: 8930291605599893733, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
