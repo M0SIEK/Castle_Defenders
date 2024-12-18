@@ -1957,7 +1957,7 @@ Transform:
   m_GameObject: {fileID: 831342199}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6236, y: 2.7596984, z: -0.055586915}
+  m_LocalPosition: {x: 5.4277, y: 2.20452, z: -0.055586915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2000,7 +2000,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 8.985624, y: 0.41071266}
+    newSize: {x: 8.593826, y: 0.41071266}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -2054,7 +2054,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8.985624, y: 0.41071266}
+  m_Size: {x: 8.593826, y: 0.41071266}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3253,17 +3253,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46f1d074a0bf9ee45ba09f6293b147e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonLVL1InitialNumber: 3
-  skeletonLVL2InitialNumber: 0
-  goblinLVL1InitialNumber: 3
-  goblinLVL2InitialNumber: 0
+  skeletonLVL1InitialNumber: 5
+  skeletonLVL2InitialNumber: 1
+  goblinLVL1InitialNumber: 5
+  goblinLVL2InitialNumber: 1
   mushroomLVL1InitialNumber: 1
   numberOfWaves: 5
   timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
-  enableSkeletonLVL2: 0
+  enableSkeletonLVL2: 1
   enableGoblinLVL1: 1
-  enableGoblinLVL2: 0
+  enableGoblinLVL2: 1
   enableMushroomLVL1: 1
   direction: 1
   startPoint: {fileID: 1495178252}
@@ -3541,11 +3541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.647
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.607
+      value: 6.98
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4242,11 +4242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.077
+      value: 7.69
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.614
+      value: 6.99
       objectReference: {fileID: 0}
     - target: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4321,7 +4321,7 @@ Transform:
   m_GameObject: {fileID: 1867537353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.85816, y: 0.0336, z: -0.055586915}
+  m_LocalPosition: {x: 9.982865, y: -0.03470882, z: -0.055586915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4364,7 +4364,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.5165043, y: 5.0414104}
+    newSize: {x: 0.5165043, y: 4.88917}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -4418,7 +4418,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5165043, y: 5.0414104}
+  m_Size: {x: 0.5165043, y: 4.88917}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5127,7 +5127,7 @@ Transform:
   m_GameObject: {fileID: 2095273546}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.8725, y: 1.4352, z: -0.055586915}
+  m_LocalPosition: {x: 0.8725, y: 1.1576, z: -0.055586915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5170,7 +5170,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 0.5165043, y: 3.0597095}
+    newSize: {x: 0.5165043, y: 2.5045524}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -5224,7 +5224,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.5165043, y: 3.0597095}
+  m_Size: {x: 0.5165043, y: 2.5045524}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5430,11 +5430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4792954257149689517, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Size.x
-      value: 8.690202
+      value: 8.75001
       objectReference: {fileID: 0}
     - target: {fileID: 4792954257149689517, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Size.y
-      value: 2.9823797
+      value: 2.4839873
       objectReference: {fileID: 0}
     - target: {fileID: 4792954257149689517, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_SortingOrder
@@ -5526,11 +5526,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7038034616750126470, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.2886
+      value: 6.3185
       objectReference: {fileID: 0}
     - target: {fileID: 7038034616750126470, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.91
+      value: 2.6608
       objectReference: {fileID: 0}
     - target: {fileID: 7735589129830023250, guid: dcf84c5ee44f7514aa3b38b75e202555, type: 3}
       propertyPath: m_Size.x
