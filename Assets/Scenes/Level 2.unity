@@ -940,6 +940,10 @@ MonoBehaviour:
   scoreText: {fileID: 1383725223}
   scoreboardTableText: {fileID: 0}
   summonNextWaveButton: {fileID: 1525470826}
+  goldCounterText: {fileID: 750597855}
+  gold: 500
+  gemsCounterText: {fileID: 1322040984}
+  gems: 0
   enemyNumberInWave: 0
   currentWave: 0
 --- !u!4 &245594955
@@ -1411,6 +1415,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundEffects
       objectReference: {fileID: 0}
+    - target: {fileID: 8363837702154628628, guid: 62a37f3b483f3924eab7ba438d9abad6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1757,6 +1765,10 @@ PrefabInstance:
     - target: {fileID: 6166449333957362273, guid: e78458dbdc71aa3418da389104efcd27, type: 3}
       propertyPath: m_Name
       value: MenuSoundController
+      objectReference: {fileID: 0}
+    - target: {fileID: 6166449333957362273, guid: e78458dbdc71aa3418da389104efcd27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2712,6 +2724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndRound
       objectReference: {fileID: 0}
+    - target: {fileID: 7365484539029817909, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8819510195368100359, guid: e4fdd46d29e30744ead6281502d509ab, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2899,6 +2915,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
   m_PrefabInstance: {fileID: 2003482411}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &750597855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4018914265442055051, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 250608325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &802186806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3294,6 +3321,10 @@ PrefabInstance:
     - target: {fileID: 1660002546293162900, guid: e4383c9585289714ab2876c0f42a1cb1, type: 3}
       propertyPath: m_Name
       value: TestMapMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660002546293162900, guid: e4383c9585289714ab2876c0f42a1cb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3484444491310495862, guid: e4383c9585289714ab2876c0f42a1cb1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4208,6 +4239,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
+--- !u!114 &1322040984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8418206736356971350, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 250608325}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1339428389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6552,19 +6594,19 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 245594955}
-  - {fileID: 859781401}
   - {fileID: 541848109}
-  - {fileID: 1716219204}
-  - {fileID: 406632274}
-  - {fileID: 1179977374}
+  - {fileID: 245594955}
+  - {fileID: 1229135644}
+  - {fileID: 1416586331}
   - {fileID: 1194503938}
-  - {fileID: 903859456}
   - {fileID: 1740689956}
   - {fileID: 630605424}
-  - {fileID: 1416586331}
-  - {fileID: 215840544}
   - {fileID: 250608325}
+  - {fileID: 903859456}
   - {fileID: 277764807}
-  - {fileID: 1229135644}
   - {fileID: 368816100}
+  - {fileID: 406632274}
+  - {fileID: 215840544}
+  - {fileID: 1716219204}
+  - {fileID: 1179977374}
+  - {fileID: 859781401}
