@@ -4,7 +4,7 @@ using System.Collections;
 public class PoisonEffect : MonoBehaviour
 {
     public float poisonDuration = 5f; // Czas trwania trucizny
-    public float poisonDamage = 10f;  // Iloœæ obra¿eñ zadawanych co pó³ sekundy
+    public float poisonDamage = 10f;  // Iloï¿½ï¿½ obraï¿½eï¿½ zadawanych co pï¿½ sekundy
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,7 +15,7 @@ public class PoisonEffect : MonoBehaviour
             EnemyController enemyController = other.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                // Rozpocznij zadawanie obra¿eñ trucizn¹
+                // Rozpocznij zadawanie obraï¿½eï¿½ truciznï¿½
                 StartCoroutine(ApplyPoisonDamage(enemyController));
             }
         }
@@ -25,27 +25,27 @@ public class PoisonEffect : MonoBehaviour
     {
         Debug.Log($"Poisoning enemy {enemyController.name} for {poisonDuration} seconds.");
 
-        // Zapisz oryginaln¹ iloœæ ¿ycia
+        // Zapisz oryginalnï¿½ iloï¿½ï¿½ ï¿½ycia
         float originalHitPoints = enemyController.hitPoints;
         float currentPoisonTime = poisonDuration;
 
-        // Co pó³ sekundy zadaj obra¿enia
+        // Co pï¿½ sekundy zadaj obraï¿½enia
         while (currentPoisonTime > 0)
         {
-            // Zadaj obra¿enia trucizn¹
+            // Zadaj obraï¿½enia truciznï¿½
             enemyController.hitPoints -= poisonDamage;
             enemyController.hitPointsBarController.UpdateHitPointsBar(enemyController.hitPoints, enemyController.maxHitPoints);
             Debug.Log($"Enemy {enemyController.name} took {poisonDamage} poison damage. Current HP: {enemyController.hitPoints}");
 
-            // Zmniejsz pozosta³y czas trucizny
+            // Zmniejsz pozostaï¿½y czas trucizny
             currentPoisonTime -= 0.5f;
 
-            // Czekaj pó³ sekundy przed kolejn¹ iteracj¹
+            // Czekaj pï¿½ sekundy przed kolejnï¿½ iteracjï¿½
             yield return new WaitForSeconds(0.5f);
         }
 
-        // Po up³ywie czasu trucizny, zakoñcz efekt
+        // Po upï¿½ywie czasu trucizny, zakoï¿½cz efekt
         Debug.Log($"Poison effect on {enemyController.name} has ended.");
-        Destroy(gameObject); // Zniszcz obiekt PoisonEffect po zakoñczeniu dzia³ania
+        Destroy(gameObject); // Zniszcz obiekt PoisonEffect po zakoï¿½czeniu dziaï¿½ania
     }
 }

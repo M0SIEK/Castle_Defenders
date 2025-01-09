@@ -5,57 +5,64 @@ using UnityEngine;
 public class TowerOptionsPanel : MonoBehaviour
 {
     public GameObject optionsPanel; // Panel z przyciskami "Upgrade" i "Delete"
-    private Tower selectedTower; // Aktualnie wybrana wie¿a
+    private Tower selectedTower; // Aktualnie wybrana wieÅ¼a
+    private WavesController wavesController; // Referencja do WavesController
 
-    public float focusedHeightOffset = 100f; // Wysokoœæ panelu w trybie Play Focused
-    public float maximizedHeightOffset = 150f; // Wysokoœæ panelu w trybie Play Maximized
+    public float focusedHeightOffset = 100f; // WysokoÅ›Ä‡ panelu w trybie Play Focused
+    public float maximizedHeightOffset = 150f; // WysokoÅ›Ä‡ panelu w trybie Play Maximized
 
-    // Otwieranie panelu opcji dla wybranej wie¿y
+    void Start()
+    {
+        // Pobranie referencji do WavesController
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
+    }
+
+    // Otwieranie panelu opcji dla wybranej wieÅ¼y
     public void Open(Tower tower)
     {
         if (selectedTower == tower && optionsPanel.activeSelf)
         {
-            Close(); // Jeœli klikniêto na tê sam¹ wie¿ê, zamknij panel
+            Close(); // JeÅ›li klikniÄ™to na tÄ™ samÄ… wieÅ¼Ä™, zamknij panel
             return;
         }
 
         selectedTower = tower;
         optionsPanel.SetActive(true);
 
-        // Ustal wysokoœæ offsetu na podstawie trybu wyœwietlania
+        // Ustal wysokoÅ›Ä‡ offsetu na podstawie trybu wyÅ›wietlania
         float heightOffset = (Screen.width > 1000 && Screen.height > 600) ? maximizedHeightOffset : focusedHeightOffset;
 
-        // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
+        // Ustawienie pozycji panelu nad klikniÄ™tÄ… wieÅ¼Ä…
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
-        screenPosition.y += heightOffset; // Dostosowanie wysokoœci panelu
+        screenPosition.y += heightOffset; // Dostosowanie wysokoÅ›ci panelu
 
         // Pobierz rozmiary panelu
         RectTransform optionsRectTransform = optionsPanel.GetComponent<RectTransform>();
         float panelHeight = optionsRectTransform.rect.height;
         float panelWidth = optionsRectTransform.rect.width;
 
-        // Sprawdzenie, czy panel wychodzi poza górn¹ krawêdŸ ekranu
+        // Sprawdzenie, czy panel wychodzi poza gÃ³rnÄ… krawÄ™dÅº ekranu
         if (screenPosition.y + panelHeight > Screen.height)
         {
-            // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod wie¿¹
+            // JeÅ›li wychodzi poza gÃ³rnÄ… krawÄ™dÅº, ustaw pozycjÄ™ pod wieÅ¼Ä…
             screenPosition.y = Camera.main.WorldToScreenPoint(tower.transform.position).y - (panelHeight + 7f);
         }
 
-        // Ograniczenie pozycji panelu do krawêdzi ekranu
+        // Ograniczenie pozycji panelu do krawÄ™dzi ekranu
         screenPosition.x = Mathf.Clamp(screenPosition.x, panelWidth / 2, Screen.width - panelWidth / 2);
 
-        // Ustaw finaln¹ pozycjê panelu
+        // Ustaw finalnÄ… pozycjÄ™ panelu
         optionsPanel.transform.position = screenPosition;
     }
 
-    // Zamkniêcie panelu opcji
+    // ZamkniÄ™cie panelu opcji
     public void Close()
     {
         optionsPanel.SetActive(false);
         selectedTower = null;
     }
 
-    // Funkcja wywo³ywana przez przycisk "Delete"
+    // Funkcja wywoÅ‚ywana przez przycisk "Delete"
     public void DeleteTower()
     {
         if (selectedTower != null)
@@ -64,12 +71,22 @@ public class TowerOptionsPanel : MonoBehaviour
         }
     }
 
-    // Funkcja wywo³ywana przez przycisk "Upgrade"
+    // Funkcja wywoÅ‚ywana przez przycisk "Upgrade"
     public void UpgradeTower()
     {
         if (selectedTower != null)
         {
-            selectedTower.UpgradeTower();
+            // Sprawdzenie, czy gracz ma wystarczajÄ…co zÅ‚ota na ulepszenie wieÅ¼y
+            if (wavesController.gold >= selectedTower.upgradeCost)
+            {
+                wavesController.gold -= selectedTower.upgradeCost; // Odejmij koszt ulepszenia
+                wavesController.UpdateGoldCounter(); // Zaktualizuj licznik zÅ‚ota
+                selectedTower.UpgradeTower(); // Ulepsz wieÅ¼Ä™
+            }
+            else
+            {
+                Debug.Log("Nie masz wystarczajÄ…co zÅ‚ota, aby ulepszyÄ‡ tÄ™ wieÅ¼Ä™!");
+            }
         }
     }
 }

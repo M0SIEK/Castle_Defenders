@@ -5,25 +5,32 @@ using UnityEngine;
 public class TowerSelectionMenu : MonoBehaviour
 {
     public GameObject menuPanel; // Panel menu wyboru
-    private EmptyField selectedField; // Wybrane pole, na którym postawimy wie¿ê
+    private EmptyField selectedField; // Wybrane pole, na ktÃ³rym postawimy wieÅ¼Ä™
+    private WavesController wavesController; // Referencja do WavesController
 
-    // Prefabrykaty wie¿
+    // Prefabrykaty wieÅ¼
     public GameObject tower1Prefab;
     public GameObject tower2Prefab;
     public GameObject tower3Prefab;
 
-    public float focusedHeightOffset = 60f; // Wysokoœæ panelu w trybie Play Focused
-    public float maximizedHeightOffset = 180f; // Wysokoœæ panelu w trybie Play Maximized
+    public float focusedHeightOffset = 60f; // WysokoÅ›Ä‡ panelu w trybie Play Focused
+    public float maximizedHeightOffset = 180f; // WysokoÅ›Ä‡ panelu w trybie Play Maximized
+
+    void Start()
+    {
+        // Pobranie referencji do WavesController
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
+    }
 
     public void Open_Close(EmptyField field)
     {
         if (menuPanel.activeSelf)
         {
-            Close(); // Jeœli panel jest otwarty, zamknij go
+            Close(); // JeÅ›li panel jest otwarty, zamknij go
         }
         else
         {
-            Open(field); // Jeœli panel jest zamkniêty, otwórz go
+            Open(field); // JeÅ›li panel jest zamkniÄ™ty, otwÃ³rz go
         }
     }
 
@@ -32,25 +39,25 @@ public class TowerSelectionMenu : MonoBehaviour
         selectedField = field;
         menuPanel.SetActive(true);
 
-        // Ustal wysokoœæ offsetu na podstawie trybu wyœwietlania
+        // Ustal wysokoÅ›Ä‡ offsetu na podstawie trybu wyÅ›wietlania
         float heightOffset = (Screen.width > 1000 && Screen.height > 600) ? maximizedHeightOffset : focusedHeightOffset;
 
-        // Ustawienie pozycji panelu nad klikniêtym polem w przestrzeni ekranu
+        // Ustawienie pozycji panelu nad klikniÄ™tym polem w przestrzeni ekranu
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(field.transform.position);
-        screenPosition.y += heightOffset; // Dostosowanie wysokoœci, aby panel by³ nad polem
+        screenPosition.y += heightOffset; // Dostosowanie wysokoÅ›ci, aby panel byÅ‚ nad polem
 
         RectTransform menuRectTransform = menuPanel.GetComponent<RectTransform>();
         float menuHeight = menuRectTransform.rect.height;
         float menuWidth = menuRectTransform.rect.width;
 
-        // Sprawdzenie, czy panel wychodzi poza górn¹ krawêdŸ ekranu
+        // Sprawdzenie, czy panel wychodzi poza gÃ³rnÄ… krawÄ™dÅº ekranu
         if (screenPosition.y + menuHeight > Screen.height)
         {
-            // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod polem
+            // JeÅ›li wychodzi poza gÃ³rnÄ… krawÄ™dÅº, ustaw pozycjÄ™ pod polem
             screenPosition.y = Camera.main.WorldToScreenPoint(field.transform.position).y - (menuHeight + 30f);
         }
 
-        // Ograniczenie pozycji panelu do krawêdzi ekranu
+        // Ograniczenie pozycji panelu do krawÄ™dzi ekranu
         screenPosition.x = Mathf.Clamp(screenPosition.x, menuWidth / 2, Screen.width - menuWidth / 2);
 
         menuPanel.transform.position = screenPosition;
@@ -66,7 +73,7 @@ public class TowerSelectionMenu : MonoBehaviour
     {
         GameObject selectedTower = null;
 
-        // Wybór prefabrykatu na podstawie indeksu
+        // WybÃ³r prefabrykatu na podstawie indeksu
         switch (towerIndex)
         {
             case 1:
@@ -80,22 +87,32 @@ public class TowerSelectionMenu : MonoBehaviour
                 break;
         }
 
-        // Tworzenie wie¿y na wybranym polu
         if (selectedTower != null && selectedField != null)
         {
-            Vector3 towerPosition = selectedField.transform.position;
-            towerPosition.y -= 0.5f; // Ustawienie odpowiedniej wysokoœci
-            GameObject towerInstance = Instantiate(selectedTower, towerPosition, Quaternion.identity);
-
-            // Przypisanie pola do nowo utworzonej wie¿y
-            Tower towerScript = towerInstance.GetComponent<Tower>();
-            if (towerScript != null)
+            Tower towerScript = selectedTower.GetComponent<Tower>();
+            if (towerScript != null && wavesController.gold >= towerScript.buildCost)
             {
-                towerScript.SetOriginalField(selectedField);
-            }
+                wavesController.gold -= towerScript.buildCost; // Odejmij koszt budowy
+                wavesController.UpdateGoldCounter(); // Zaktualizuj zÅ‚oto w UI
 
-            selectedField.gameObject.SetActive(false); // Ukryj pole po postawieniu wie¿y
-            Close(); // Zamknij panel po wybraniu wie¿y
+                Vector3 towerPosition = selectedField.transform.position;
+                towerPosition.y -= 0.5f; // Ustawienie odpowiedniej wysokoÅ›ci
+                GameObject towerInstance = Instantiate(selectedTower, towerPosition, Quaternion.identity);
+
+                // Przypisanie pola do nowo utworzonej wieÅ¼y
+                towerScript = towerInstance.GetComponent<Tower>();
+                if (towerScript != null)
+                {
+                    towerScript.SetOriginalField(selectedField);
+                }
+
+                selectedField.gameObject.SetActive(false); // Ukryj pole po postawieniu wieÅ¼y
+                Close(); // Zamknij panel po wybraniu wieÅ¼y
+            }
+            else
+            {
+                Debug.Log("Nie masz wystarczajÄ…co zÅ‚ota, aby zbudowaÄ‡ tÄ™ wieÅ¼Ä™!");
+            }
         }
     }
 }

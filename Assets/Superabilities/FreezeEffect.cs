@@ -3,12 +3,12 @@ using System.Collections;
 
 public class FreezeEffect : MonoBehaviour
 {
-    public float freezeDuration = 5f; // Ca³kowity czas trwania zamro¿enia
-    private float currentFreezeTime; // Pozosta³y czas zamro¿enia
+    public float freezeDuration = 5f; // Caï¿½kowity czas trwania zamroï¿½enia
+    private float currentFreezeTime; // Pozostaï¿½y czas zamroï¿½enia
 
     private void Start()
     {
-        currentFreezeTime = freezeDuration; // Ustaw pocz¹tkowy czas zamro¿enia
+        currentFreezeTime = freezeDuration; // Ustaw poczï¿½tkowy czas zamroï¿½enia
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,7 +20,7 @@ public class FreezeEffect : MonoBehaviour
             EnemyController enemyController = other.GetComponent<EnemyController>();
             if (enemyController != null)
             {
-                // Rozpocznij zamra¿anie przeciwnika
+                // Rozpocznij zamraï¿½anie przeciwnika
                 StartCoroutine(FreezeEnemy(enemyController));
             }
         }
@@ -30,26 +30,26 @@ public class FreezeEffect : MonoBehaviour
     {
         Debug.Log($"Freezing enemy {enemyController.name} for {currentFreezeTime} seconds.");
 
-        // Zapisz oryginaln¹ prêdkoœæ przeciwnika
+        // Zapisz oryginalnï¿½ prï¿½dkoï¿½ï¿½ przeciwnika
         float originalSpeed = enemyController.speed;
 
-        // Zmniejsz prêdkoœæ przeciwnika piêciokrotnie
+        // Zmniejsz prï¿½dkoï¿½ï¿½ przeciwnika piï¿½ciokrotnie
         enemyController.speed = originalSpeed / 5f;
 
-        // Rozpocznij timer zamro¿enia
+        // Rozpocznij timer zamroï¿½enia
         float freezeTimeRemaining = currentFreezeTime;
 
         while (freezeTimeRemaining > 0)
         {
-            yield return null; // Czekaj na ka¿d¹ klatkê
-            freezeTimeRemaining -= Time.deltaTime; // Zmniejsz pozosta³y czas
+            yield return null; // Czekaj na kaï¿½dï¿½ klatkï¿½
+            freezeTimeRemaining -= Time.deltaTime; // Zmniejsz pozostaï¿½y czas
         }
 
-        // Przywróæ oryginaln¹ prêdkoœæ
+        // Przywrï¿½ï¿½ oryginalnï¿½ prï¿½dkoï¿½ï¿½
         enemyController.speed = originalSpeed;
         Debug.Log($"Enemy {enemyController.name} thawed and can move again.");
 
-        // Zniszcz obiekt FreezeEffect po zakoñczeniu dzia³ania
+        // Zniszcz obiekt FreezeEffect po zakoï¿½czeniu dziaï¿½ania
         Destroy(gameObject);
     }
 }

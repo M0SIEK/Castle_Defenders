@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     private EmptyField originalField; // Pole, na którym wieża została postawiona
     private bool isUpgraded = false; // Flaga do sprawdzania, czy wieża została ulepszona
     private MonoBehaviour activeOptionsPanel; // Przechowuje aktywny panel (TowerOptionsPanel lub TowerDeleteOptionsPanel)
+    private WavesController wavesController; // Referencja do WavesController
     public int level = 1; // Zmienna reprezentująca poziom wieży, domyślnie ustawiona na 1
     public GameObject upgradedTowerPrefab; // Prefab ulepszonej wieży (do przypisania w Unity)
     public GameObject projectilePrefab; // Prefab pocisku
@@ -18,7 +19,8 @@ public class Tower : MonoBehaviour
     private Transform target; // Cel dla pocisku
     public Transform firePoint;
     public bool isTowerPlaced = false; // Flaga sprawdzająca, czy wieża jest postawiona
-
+    public int buildCost = 50; // Koszt budowy wieży
+    public int upgradeCost = 100; // Koszt ulepszenia wieży
     private GameObject rangeIndicator; // Obiekt wizualizujący zasięg wieży
 
     private void Start()
@@ -38,8 +40,8 @@ public class Tower : MonoBehaviour
         rangeIndicator.transform.localScale = new Vector2(range * 1.1f * towerScale.x, range * 1.1f * towerScale.y);        // Dopasowanie skali do zasięgu i skali wieży
 
         rangeIndicator.SetActive(false); // Domyślnie ukryty
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
     }
-
 
     private void OnMouseDown()
     {
@@ -97,26 +99,37 @@ public class Tower : MonoBehaviour
     // Funkcja do ulepszania wieży
     public void UpgradeTower()
     {
-        // Tworzymy ulepszoną wersję wieży na tej samej pozycji
-        if (upgradedTowerPrefab != null)
+        if (wavesController.gold >= upgradeCost)
         {
-            GameObject upgradedTower = Instantiate(upgradedTowerPrefab, transform.position, transform.rotation);
+            wavesController.gold -= upgradeCost; // Odejmij koszt ulepszenia
+            wavesController.UpdateGoldCounter(); // Zaktualizuj złoto w UI
 
-            // Przypisujemy pole do nowej wieży i ustawiamy ją jako ulepszoną
-            Tower towerScript = upgradedTower.GetComponent<Tower>();
-            if (towerScript != null)
+            // Tworzymy ulepszoną wersję wieży na tej samej pozycji
+            if (upgradedTowerPrefab != null)
             {
-                towerScript.SetOriginalField(originalField);
-                towerScript.level = level + 1; // Zwiększamy poziom wieży
-                towerScript.isTowerPlaced = true; // Ustawiamy nową wieżę jako postawioną
-            }
+                GameObject upgradedTower = Instantiate(upgradedTowerPrefab, transform.position, transform.rotation);
 
-            Destroy(gameObject); // Zniszcz stary obiekt wieży
-            if (towerOptionsPanel != null)
-            {
-                towerOptionsPanel.Close(); // Zamknij panel opcji
+                // Przypisujemy pole do nowej wieży i ustawiamy ją jako ulepszoną
+                Tower towerScript = upgradedTower.GetComponent<Tower>();
+                if (towerScript != null)
+                {
+                    towerScript.SetOriginalField(originalField);
+                    towerScript.level = level + 1; // Zwiększamy poziom wieży
+                    towerScript.isTowerPlaced = true; // Ustawiamy nową wieżę jako postawioną
+                }
+
+                Destroy(gameObject); // Zniszcz stary obiekt wieży
+                if (towerOptionsPanel != null)
+                {
+                    towerOptionsPanel.Close(); // Zamknij panel opcji
+                }
             }
         }
+        else
+        {
+            Debug.Log("Nie masz wystarczająco złota, aby ulepszyć wieżę!");
+        }
+
     }
 
     private void Update()
@@ -167,7 +180,6 @@ public class Tower : MonoBehaviour
 
         target = nearestEnemy != null ? nearestEnemy : null;
     }
-
 
     void Shoot()
     {

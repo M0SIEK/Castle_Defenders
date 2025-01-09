@@ -159,6 +159,37 @@ Transform:
   - {fileID: 1150488340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &42326993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42326994}
+  m_Layer: 0
+  m_Name: PoisonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42326994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42326993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 468.99203, y: 157.57396, z: -1.0149167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &75024329 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 4756410199066595904, guid: 62a37f3b483f3924eab7ba438d9abad6, type: 3}
@@ -535,6 +566,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 770974739}
   m_SourcePrefab: {fileID: 100100000, guid: 82567ed78096c694cb4ce8a9ebef2faa, type: 3}
+--- !u!114 &268371627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4018914265442055051, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 8814952921972986724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &312741429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -665,9 +707,17 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 377649358}
+    - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -734,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9132263790785299207, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -844,6 +894,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 382460917}
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: isTowerPlaced
       value: 1
       objectReference: {fileID: 0}
@@ -943,9 +997,17 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 383687322}
+    - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
+      propertyPath: upgradeCost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -994,9 +1056,17 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 421734093}
+    - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -1080,6 +1150,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
   m_PrefabInstance: {fileID: 421734091}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &441722625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 441722627}
+  - component: {fileID: 441722626}
+  m_Layer: 0
+  m_Name: BombManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &441722626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441722625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8884347b508a40e2b22889f89436d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 2503623394410623127, guid: fb93f500163b09b4bb5195de595b80f8, type: 3}
+  gemCost: 1
+--- !u!4 &441722627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441722625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 468.99203, y: 157.57396, z: -1.0149167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &453858111
 GameObject:
   m_ObjectHideFlags: 0
@@ -1381,6 +1497,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &477796383 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8418206736356971350, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 8814952921972986724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &502326596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1722,37 @@ Transform:
   - {fileID: 1867537354}
   - {fileID: 1235301537}
   - {fileID: 1401144334}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &544435738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544435739}
+  m_Layer: 0
+  m_Name: FreezeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544435739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544435738}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 468.99203, y: 157.57396, z: -1.0149167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561571874
@@ -2077,9 +2235,17 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 849991068}
+    - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
+      propertyPath: upgradeCost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -2098,7 +2264,7 @@ PrefabInstance:
       objectReference: {fileID: 1684346575}
     - target: {fileID: 1388503090234821737, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2584,9 +2750,17 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1141409835}
+    - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
+      propertyPath: upgradeCost
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -3280,6 +3454,10 @@ MonoBehaviour:
   scoreText: {fileID: 1075885305}
   scoreboardTableText: {fileID: 1929794178}
   summonNextWaveButton: {fileID: 8926007376910649582}
+  goldCounterText: {fileID: 268371627}
+  gold: 0
+  gemsCounterText: {fileID: 477796383}
+  gems: 0
   enemyNumberInWave: 0
   currentWave: 0
 --- !u!4 &1414590496
@@ -3765,6 +3943,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4689442960516959382, guid: b49f2a6d3af2ef342ba3df17cc8375ef, type: 3}
   m_PrefabInstance: {fileID: 1565517974}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1566892634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3188147315217948945, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 8814952921972986724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1566892644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566892634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8884347b508a40e2b22889f89436d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 2503623394410623127, guid: fb93f500163b09b4bb5195de595b80f8, type: 3}
+  gemCost: 1
 --- !u!1001 &1631650941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4020,9 +4217,17 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
+      propertyPath: buildCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1780975838}
+    - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -4485,6 +4690,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1877397831}
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: isTowerPlaced
       value: 1
       objectReference: {fileID: 0}
@@ -4683,6 +4892,10 @@ PrefabInstance:
       propertyPath: firePoint
       value: 
       objectReference: {fileID: 1948910775}
+    - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
+      propertyPath: upgradeCost
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: isTowerPlaced
       value: 1
@@ -5969,9 +6182,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611908119803763627}
     - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 75024329}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 441722626}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaceBomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: BombPlacer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411446600258167471, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1919880464746457660, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 110.7
@@ -6178,7 +6419,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 94471495566925494, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       insertIndex: 5
       addedObject: {fileID: 989012708}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3188147315217948945, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1566892644}
   m_SourcePrefab: {fileID: 100100000, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
 --- !u!114 &8926007376910649582 stripped
 MonoBehaviour:
@@ -6212,3 +6456,6 @@ SceneRoots:
   - {fileID: 1643658856}
   - {fileID: 2187688200863083616}
   - {fileID: 543586522}
+  - {fileID: 441722627}
+  - {fileID: 544435739}
+  - {fileID: 42326994}

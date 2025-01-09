@@ -4,63 +4,78 @@ using UnityEngine;
 
 public class TowerDeleteOptionsPanel : MonoBehaviour
 {
-    public GameObject deleteOptionsPanel; // Panel z opcj¹ usuniêcia wie¿y na poziomie 3
-    private Tower selectedTower; // Aktualnie wybrana wie¿a
+    public GameObject deleteOptionsPanel; // Panel z opcjÄ… usuniÄ™cia wieÅ¼y na poziomie 3
+    private Tower selectedTower; // Aktualnie wybrana wieÅ¼a
+    private WavesController wavesController; // Referencja do WavesController
 
-    public float focusedHeightOffset = 100f; // Wysokoœæ panelu w trybie Play Focused
-    public float maximizedHeightOffset = 150f; // Wysokoœæ panelu w trybie Play Maximized
+    public float focusedHeightOffset = 100f; // WysokoÅ›Ä‡ panelu w trybie Play Focused
+    public float maximizedHeightOffset = 150f; // WysokoÅ›Ä‡ panelu w trybie Play Maximized
+    public float goldRefundPercentage = 0.5f; // Procent zwrotu zÅ‚ota po usuniÄ™ciu wieÅ¼y
 
-    // Otwieranie panelu opcji dla wie¿y poziomu 3
+    void Start()
+    {
+        // Pobranie referencji do WavesController
+        wavesController = GameObject.FindGameObjectWithTag("WavesController").GetComponent<WavesController>();
+    }
+
+    // Otwieranie panelu opcji dla wieÅ¼y poziomu 3
     public void Open(Tower tower)
     {
         if (selectedTower == tower && deleteOptionsPanel.activeSelf)
         {
-            Close(); // Jeœli klikniêto na tê sam¹ wie¿ê, zamknij panel
+            Close(); // JeÅ›li klikniÄ™to na tÄ™ samÄ… wieÅ¼Ä™, zamknij panel
             return;
         }
 
         selectedTower = tower;
         deleteOptionsPanel.SetActive(true);
 
-        // Ustal wysokoœæ offsetu na podstawie trybu wyœwietlania
+        // Ustal wysokoÅ›Ä‡ offsetu na podstawie trybu wyÅ›wietlania
         float heightOffset = (Screen.width > 1000 && Screen.height > 600) ? maximizedHeightOffset : focusedHeightOffset;
 
-        // Ustawienie pozycji panelu nad klikniêt¹ wie¿¹
+        // Ustawienie pozycji panelu nad klikniÄ™tÄ… wieÅ¼Ä…
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(tower.transform.position);
-        screenPosition.y += heightOffset; // Dostosowanie wysokoœci panelu
+        screenPosition.y += heightOffset; // Dostosowanie wysokoÅ›ci panelu
 
         // Pobierz rozmiary panelu
         RectTransform panelDeleteRectTransform = deleteOptionsPanel.GetComponent<RectTransform>();
         float panelHeight = panelDeleteRectTransform.rect.height;
         float panelWidth = panelDeleteRectTransform.rect.width;
 
-        // Sprawdzenie, czy panel wychodzi poza górn¹ krawêdŸ ekranu
+        // Sprawdzenie, czy panel wychodzi poza gÃ³rnÄ… krawÄ™dÅº ekranu
         if (screenPosition.y + panelHeight > Screen.height)
         {
-            // Jeœli wychodzi poza górn¹ krawêdŸ, ustaw pozycjê pod wie¿¹
+            // JeÅ›li wychodzi poza gÃ³rnÄ… krawÄ™dÅº, ustaw pozycjÄ™ pod wieÅ¼Ä…
             screenPosition.y = Camera.main.WorldToScreenPoint(tower.transform.position).y - (panelHeight + 7f);
         }
 
-        // Ograniczenie pozycji panelu do krawêdzi ekranu
+        // Ograniczenie pozycji panelu do krawÄ™dzi ekranu
         screenPosition.x = Mathf.Clamp(screenPosition.x, panelWidth / 2, Screen.width - panelWidth / 2);
 
-        // Ustaw finaln¹ pozycjê panelu
+        // Ustaw finalnÄ… pozycjÄ™ panelu
         deleteOptionsPanel.transform.position = screenPosition;
     }
 
-    // Zamkniêcie panelu opcji
+    // ZamkniÄ™cie panelu opcji
     public void Close()
     {
         deleteOptionsPanel.SetActive(false);
         selectedTower = null;
     }
 
-    // Funkcja wywo³ywana przez przycisk "Delete"
+    // Funkcja wywoÅ‚ywana przez przycisk "Delete"
     public void DeleteTower()
     {
         if (selectedTower != null)
         {
-            selectedTower.DeleteTower();
+            // Oblicz zwrot zÅ‚ota
+            int goldRefund = Mathf.FloorToInt(selectedTower.buildCost * goldRefundPercentage);
+            wavesController.gold += goldRefund; // Dodaj zÅ‚oto do WavesController
+            wavesController.UpdateGoldCounter(); // Zaktualizuj zÅ‚oto w interfejsie uÅ¼ytkownika
+
+            Debug.Log($"WieÅ¼a usuniÄ™ta! Zwrot zÅ‚ota: {goldRefund}");
+
+            selectedTower.DeleteTower(); // UsuÅ„ wieÅ¼Ä™
         }
     }
 }

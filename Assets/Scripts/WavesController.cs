@@ -38,6 +38,10 @@ public class WavesController : MonoBehaviour
     public TextMeshProUGUI scoreText; // Dodaj referencję do TextMeshPro dla punktów
     public TextMeshProUGUI scoreboardTableText; // Referencja do ScoreboardTableText
     public Button summonNextWaveButton;
+    public TextMeshProUGUI goldCounterText; // Licznik złota
+    public int gold = 0; // Ilość złota
+    public TextMeshProUGUI gemsCounterText; // Licznik Gems w UI
+    public int gems = 0; // Ilość Gems
 
 
 
@@ -61,6 +65,21 @@ public class WavesController : MonoBehaviour
     private Transform startPointTranslation;
     private Vector3 startPointCoordinates;
     private bool gameStarted;
+    public bool SpendGems(int amount)
+    {
+        if (gems >= amount)
+        {
+            gems -= amount;
+            UpdateGemsCounter(); // Zaktualizuj UI
+            Debug.Log($"Spent {amount} gems. Remaining gems: {gems}");
+            return true; // Transakcja zakończona sukcesem
+        }
+        else
+        {
+            Debug.Log("Not enough gems!");
+            return false; // Za mało gemów
+        }
+    }
 
     void Start()
     {
@@ -79,9 +98,16 @@ public class WavesController : MonoBehaviour
         Time.timeScale = 0;
         gameStarted = false;
 
+        // Ustaw początkową wartość złota i gems
+        gold = 1000; // Wpisz tutaj dowolną wartość startową złota
+        UpdateGoldCounter(); // Zaktualizuj licznik złota w UI
+        gems = 3; // Dodanie 10 Gema na start gry
+        UpdateGemsCounter(); // Aktualizacja licznika Gems
+
         waveText.GetComponent<TextMeshProUGUI>().text = currentWave.ToString() + "/" + numberOfWaves.ToString();
 
         UpdateScoreText(); // Dodaj to tutaj, aby wyświetlić początkowy wynik
+        
     }
 
 
@@ -98,15 +124,17 @@ public class WavesController : MonoBehaviour
         UpdateTimer();
     }
 
-    public void DecrementEnemyNumber(float scoreMultiplier = 1.0f)
+    public void DecrementEnemyNumber(float scoreMultiplier = 1.0f, int goldReward = 10)
     {
         if (enemyNumberInWave > 0)
         {
             enemyNumberInWave--;
-            score += (int)(10 * scoreMultiplier); // 10 to bazowa wartość punktów
+            score += (int)(10 * scoreMultiplier); // Dodanie punktów
+            gold += goldReward; // Dodanie złota
             UpdateEnemiesLeftText(enemyNumberInWave);
             UpdateScoreText();
-            Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}, Score: {score}");
+            UpdateGoldCounter();
+            Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}, Score: {score}, Gold: {gold}");
         }
 
         if (enemyNumberInWave <= 0 && currentWave >= numberOfWaves)
@@ -191,9 +219,44 @@ public class WavesController : MonoBehaviour
 
 
 
+    public void UpdateGoldCounter()
+    {
+        if (goldCounterText != null)
+        {
+            goldCounterText.text = "Gold: " + gold;
+            Debug.Log($"Gold counter updated to: {gold}");
+        }
+        else
+        {
+            Debug.LogError("GoldCounterText is not assigned in the inspector!");
+        }
+    }
+
+    public void UpdateGemsCounter()
+    {
+        if (gemsCounterText != null)
+        {
+            gemsCounterText.text = "Gems: " + gems;
+            Debug.Log($"Gems counter updated to: {gems}");
+        }
+        else
+        {
+            Debug.LogError("GemsCounterText is not assigned in the inspector!");
+        }
+    }
+
+
+
+
     private void SummonNextWave(int skeletonLVL1Number, int skeletonLVL2Number, int goblinLVL1Number, int goblinLVL2Number, int mushroomLVL1Number)
     {
         Debug.Log($"Summoning next wave: Wave {currentWave + 1}/{numberOfWaves}");
+
+        // Dodane wywołanie
+        if (currentWave > 0)
+        {
+            RewardGemsForWave();
+        }
 
         UpdateWaveNumber();
         UpdateEnemyNumber();
@@ -325,5 +388,11 @@ public class WavesController : MonoBehaviour
         Debug.Log("Mushroom LVL_1: " + mushroomLVL1CurrentWaveNumber.ToString());
 
         return skeletonLVL1CurrentWaveNumber + skeletonLVL2CurrentWaveNumber + goblinLVL1CurrentWaveNumber + goblinLVL2CurrentWaveNumber + mushroomLVL1CurrentWaveNumber;
+    }
+    private void RewardGemsForWave()
+    {
+        gems += 1; // Dodaj 1 Gem za każdą ukończoną falę
+        UpdateGemsCounter(); // Zaktualizuj licznik Gems w UI
+        Debug.Log($"RewardGemsForWave executed. Gems: {gems}");
     }
 }

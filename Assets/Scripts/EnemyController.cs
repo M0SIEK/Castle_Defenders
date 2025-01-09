@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public float maxHitPoints = 100f; // Maksymalne punkty życia przeciwnika
     public float speed = 0.02f; // Prędkość poruszania się przeciwnika
     public float scoreMultiplier = 1.0f; // Mnożnik punktów za przeciwnika (w zależności od poziomu)
+    public int goldReward = 10; // Nagroda w złocie za pokonanie przeciwnika
     public Transform startPoint; // Punkt początkowy
     public Transform nextTarget; // Kolejny punkt trasy
     public HitPointsBarController hitPointsBarController; // Kontroler paska życia
@@ -142,7 +143,7 @@ public class EnemyController : MonoBehaviour
 
     private void Dead()
     {
-        wavesController.DecrementEnemyNumber(scoreMultiplier);
+        wavesController.DecrementEnemyNumber(scoreMultiplier, goldReward);
         Destroy(this.gameObject);
     }
 
