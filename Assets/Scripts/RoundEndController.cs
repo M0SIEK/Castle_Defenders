@@ -9,7 +9,7 @@ public class RoundEndController : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public HitPointsBarController hitPointsBar;  // Odwo³anie do HitPointsBarController
-    public WavesController wavesController;     // Odwo³anie do WavesController (dodane)
+    public WavesController wavesController;     // Odwo³anie do WavesController 
     private bool roundEnded = false;
 
     private void Start()

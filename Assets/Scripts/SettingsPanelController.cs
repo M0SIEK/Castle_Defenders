@@ -11,7 +11,7 @@ public class SettingsPanelController : MonoBehaviour
     public Toggle musicToggle;
     public GameObject wavesController;
     public AudioSource musicSource2;
-    public static bool SettingsPanelActive { get; private set; } = false;
+    public static bool SettingsPanelActive { get; internal set; } = false;
 
     private bool soundOn;
     private bool musicOn;

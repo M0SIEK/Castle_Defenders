@@ -11,27 +11,32 @@ public class LevelsPanelController : MonoBehaviour
 
     public void StartLevel1()
     {
+        SettingsPanelController.SettingsPanelActive = false;
         SceneManager.LoadScene("Level 1"); // Za³aduj scenê Level1
     }
 
     public void StartLevel2()
     {
+        SettingsPanelController.SettingsPanelActive = false;
         SceneManager.LoadScene("Level 2"); // Za³aduj scenê Level2
     }
 
     public void StartLevel3()
     {
+        SettingsPanelController.SettingsPanelActive = false;
         SceneManager.LoadScene("Level 3"); // Za³aduj scenê Level3
     }
 
     public void StartLevel4()
     {
-        SceneManager.LoadScene("Level4Scene"); // Za³aduj scenê Level4Scene
+        SettingsPanelController.SettingsPanelActive = false;
+        SceneManager.LoadScene("Level 4"); // Za³aduj scenê Level4
     }
 
     public void StartLevel5()
     {
-        SceneManager.LoadScene("Level5Scene"); // Za³aduj scenê Level5Scene
+        SettingsPanelController.SettingsPanelActive = false;
+        SceneManager.LoadScene("Level 5"); // Za³aduj scenê Level5
     }
 
     public void ReturnToMainMenu()
