@@ -45,6 +45,11 @@ public class Tower : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (SettingsPanelController.SettingsPanelActive || RoundEndController.RoundEndPanelActive)
+        {
+            return;
+        }
+
         // Wyświetlenie lub ukrycie wskaźnika zasięgu po kliknięciu
         bool isActive = rangeIndicator.activeSelf;
         rangeIndicator.SetActive(!isActive);
