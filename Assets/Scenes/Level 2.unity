@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonLVL1InitialNumber: 20
-  skeletonLVL2InitialNumber: 4
+  skeletonLVL2InitialNumber: 5
   goblinLVL1InitialNumber: 5
   goblinLVL2InitialNumber: 0
   mushroomLVL1InitialNumber: 2
