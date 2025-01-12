@@ -4,9 +4,22 @@ public class Ability : MonoBehaviour
 {
     public GameObject abilityAreaPrefab; // Prefab obszaru dzia³ania umiejêtnoœci
     public float abilityDuration = 5f;  // Czas trwania dzia³ania umiejêtnoœci
+    public int gemsCost = 1; // Koszt u¿ycia umiejêtnoœci w gemach
 
     private GameObject abilityAreaInstance; // Tymczasowy obiekt podczas umieszczania
     private bool isPlacingAbilityArea = false; // Czy tryb umieszczania jest aktywny
+    private WavesController wavesController; // Referencja do WavesController
+
+    void Start()
+    {
+        // ZnajdŸ WavesController na scenie
+        wavesController = FindObjectOfType<WavesController>();
+
+        if (wavesController == null)
+        {
+            Debug.LogError("WavesController not found! Make sure it exists in the scene.");
+        }
+    }
 
     void Update()
     {
@@ -20,6 +33,13 @@ public class Ability : MonoBehaviour
     public void ActivateAbility()
     {
         Debug.Log("ActivateAbility called!"); // Informacja, ¿e funkcja zosta³a wywo³ana
+
+        // SprawdŸ, czy gracz ma wystarczaj¹co gemów
+        if (wavesController != null && !wavesController.SpendGems(gemsCost))
+        {
+            Debug.LogWarning("Nie masz wystarczaj¹co gemów, aby u¿yæ umiejêtnoœci!");
+            return;
+        }
 
         // Sprawdzenie, czy tryb umieszczania nie jest ju¿ aktywny
         if (!isPlacingAbilityArea)
