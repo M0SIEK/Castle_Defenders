@@ -76,6 +76,7 @@ public class ScoreboardController : MonoBehaviour
         SelectCurrentLevelScoreboard(selectedLvlName);
         scoreboard = ReadFromJsonFile(selectedLvlName);
     }
+
     private int GetMinScoreIndex(int[] scores)
     {
         int minScore = scores[0];

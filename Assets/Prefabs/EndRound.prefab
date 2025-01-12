@@ -1769,7 +1769,7 @@ MonoBehaviour:
   loseScreen: {fileID: 5857197024874326554}
   hitPointsBar: {fileID: 0}
   wavesController: {fileID: 0}
-  roundEndPanel: {fileID: 0}
+  roundEndPanel: {fileID: 7626560258264809151}
   scoreboardController: {fileID: 0}
 --- !u!1 &7645075017299375314
 GameObject:

@@ -10,6 +10,7 @@ public class TowerOptionsPanel : MonoBehaviour
 
     public float focusedHeightOffset = 100f; // Wysokość panelu w trybie Play Focused
     public float maximizedHeightOffset = 150f; // Wysokość panelu w trybie Play Maximized
+    public float goldRefundPercentage = 0.5f; // Procent zwrotu złota po usunięciu wieży
 
     void Start()
     {
@@ -67,7 +68,14 @@ public class TowerOptionsPanel : MonoBehaviour
     {
         if (selectedTower != null)
         {
-            selectedTower.DeleteTower();
+            // Oblicz zwrot złota
+            int goldRefund = Mathf.FloorToInt(selectedTower.buildCost * goldRefundPercentage);
+            wavesController.gold += goldRefund; // Dodaj złoto do WavesController
+            wavesController.UpdateGoldCounter(); // Zaktualizuj złoto w interfejsie użytkownika
+
+            Debug.Log($"Wieża usunięta! Zwrot złota: {goldRefund}");
+
+            selectedTower.DeleteTower(); // Usuń wieżę
         }
     }
 

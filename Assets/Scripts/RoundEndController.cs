@@ -94,9 +94,4 @@ public class RoundEndController : MonoBehaviour
     {
         scoreboardController.ShowScoreboardPanel(); // Wyœwietlenie Scoreboard
     }
-
-    public void CloseScoreboard()
-    {
-        scoreboardController.CloseScoreboardPanel(); // Zamkniêcie Scoreboard
-    }
 }
