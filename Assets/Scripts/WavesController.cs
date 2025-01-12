@@ -99,7 +99,7 @@ public class WavesController : MonoBehaviour
         gameStarted = false;
 
         // Ustaw początkową wartość złota i gems
-        gold = 1000; // Wpisz tutaj dowolną wartość startową złota
+        gold = 200; // Wpisz tutaj dowolną wartość startową złota
         UpdateGoldCounter(); // Zaktualizuj licznik złota w UI
         gems = 3; // Dodanie 10 Gema na start gry
         UpdateGemsCounter(); // Aktualizacja licznika Gems
