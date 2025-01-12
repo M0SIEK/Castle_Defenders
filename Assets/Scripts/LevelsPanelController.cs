@@ -1,7 +1,5 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LevelsPanelController : MonoBehaviour
 {
@@ -11,32 +9,38 @@ public class LevelsPanelController : MonoBehaviour
 
     public void StartLevel1()
     {
-        SettingsPanelController.SettingsPanelActive = false;
-        SceneManager.LoadScene("Level 1"); // Za³aduj scenê Level1
+        StartLevel("Level 1");
     }
 
     public void StartLevel2()
     {
-        SettingsPanelController.SettingsPanelActive = false;
-        SceneManager.LoadScene("Level 2"); // Za³aduj scenê Level2
+        StartLevel("Level 2");
     }
 
     public void StartLevel3()
     {
-        SettingsPanelController.SettingsPanelActive = false;
-        SceneManager.LoadScene("Level 3"); // Za³aduj scenê Level3
+        StartLevel("Level 3");
     }
 
     public void StartLevel4()
     {
-        SettingsPanelController.SettingsPanelActive = false;
-        SceneManager.LoadScene("Level 4"); // Za³aduj scenê Level4
+        StartLevel("Level 4");
     }
 
     public void StartLevel5()
     {
+        StartLevel("Level 5");
+    }
+
+    private void StartLevel(string levelName)
+    {
         SettingsPanelController.SettingsPanelActive = false;
-        SceneManager.LoadScene("Level 5"); // Za³aduj scenê Level5
+
+        // Zapisz nazwê poziomu do PlayerPrefs
+        PlayerPrefs.SetString("CurrentLevelName", levelName);
+
+        // Za³aduj wybrany poziom
+        SceneManager.LoadScene(levelName);
     }
 
     public void ReturnToMainMenu()

@@ -43,9 +43,7 @@ public class MainMenuController : MonoBehaviour
 
     public void OpenLevelsPanel()
     {
-        Debug.Log("OpenLevelsPanel called"); // SprawdŸ, czy funkcja dzia³a
         LevelsPanel.SetActive(true);               // Poka¿ panel poziomów
-        Debug.Log("LevelsPanel active after: " + LevelsPanel.activeSelf);
         MainMenuCanvasGroup.interactable = false;  // Zablokuj interakcje z g³ównym menu
         MainMenuCanvasGroup.blocksRaycasts = false; // Przestañ rejestrowaæ klikniêcia dla menu
     }
