@@ -1919,7 +1919,7 @@ PrefabInstance:
     - target: {fileID: 2495029578288533904, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 2828806523684620368, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_Name
       value: Tower 1 - level 2
@@ -1938,11 +1938,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9536
+      value: 4.2851
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.814656
+      value: 0.96294785
       objectReference: {fileID: 0}
     - target: {fileID: 5936192365614151281, guid: d1cba4b27f75c8a4db0fd1fe043247c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2037,11 +2037,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3724
+      value: 2.8662999
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.831376
+      value: 0.97966766
       objectReference: {fileID: 0}
     - target: {fileID: 832225503832601154, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2118,7 +2118,7 @@ PrefabInstance:
     - target: {fileID: 8572433321782967889, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 8982859279604089080, guid: ae36b2fed655ec843ac2c28b470f7ae4, type: 3}
       propertyPath: m_Name
       value: Tower 1 - level 1
@@ -2156,11 +2156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1571
+      value: 5.3958
       objectReference: {fileID: 0}
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.795759
+      value: 4.944051
       objectReference: {fileID: 0}
     - target: {fileID: 1514227546860959980, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2229,7 +2229,7 @@ PrefabInstance:
     - target: {fileID: 6752350462648908779, guid: fdd35b911f0a8d44bbdb193043b1f9bd, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2382,7 +2382,7 @@ PrefabInstance:
     - target: {fileID: -1269653447744407760, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 1121867583050367865, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_Name
       value: Tower 2 - level 2
@@ -2405,11 +2405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0439
+      value: 4.1948
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.805208
+      value: 2.9534998
       objectReference: {fileID: 0}
     - target: {fileID: 3860286451188743180, guid: 5ac56c0740cd2ac47888e61d8a36f08c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4129,7 +4129,7 @@ PrefabInstance:
     - target: {fileID: 744533781571769628, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 1388503090234821737, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -4148,11 +4148,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4846
+      value: 5.7233
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.791777
+      value: 0.94006824
       objectReference: {fileID: 0}
     - target: {fileID: 2774540123939564405, guid: 1a2403faa3336294aa1cf7611d5b87a9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5306,6 +5306,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 94471495566925494, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
   m_PrefabInstance: {fileID: 8814952921972986724}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1052277288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4018914265442055051, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 8814952921972986724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1075885303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5467,11 +5478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3763
+      value: 5.615
       objectReference: {fileID: 0}
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.828088
+      value: 2.9763794
       objectReference: {fileID: 0}
     - target: {fileID: 101519488614029344, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5536,7 +5547,7 @@ PrefabInstance:
     - target: {fileID: 2992136015776909929, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 8960464344303970341, guid: 0053fdc99be3439488707f5bd163861e, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -5805,6 +5816,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718257699156318871, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
   m_PrefabInstance: {fileID: 1150488339}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1180006409 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8418206736356971350, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+  m_PrefabInstance: {fileID: 8814952921972986724}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1215805143
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,9 +6544,9 @@ MonoBehaviour:
   waveText: {fileID: 402837959363168058}
   scoreText: {fileID: 1075885305}
   summonNextWaveButton: {fileID: 8926007376910649582}
-  goldCounterText: {fileID: 0}
-  gold: 0
-  gemsCounterText: {fileID: 0}
+  goldCounterText: {fileID: 1052277288}
+  gold: 200
+  gemsCounterText: {fileID: 1180006409}
   gems: 0
   enemyNumberInWave: 0
   currentWave: 0
@@ -7252,6 +7274,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3718257699156318871, guid: 6f9ef2967feace64480f0faf4ac5dc1c, type: 3}
   m_PrefabInstance: {fileID: 1238065345}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1766574713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6318468653113347535, guid: 2baf2cfa3ed260d45a5e54a6b2c6e876, type: 3}
+  m_PrefabInstance: {fileID: 741869972}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c9cc8a7af15e14b9ae5d7e990d4c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1780975836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7291,7 +7324,7 @@ PrefabInstance:
     - target: {fileID: -1425452512699762513, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7729049
@@ -7306,11 +7339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1852
+      value: 4.0535
       objectReference: {fileID: 0}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.75
+      value: 4.8982916
       objectReference: {fileID: 0}
     - target: {fileID: 647731657624932556, guid: 808ac385fa02d5f4494bdcfe5f5dce5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7495,11 +7528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5125
+      value: 2.7261999
       objectReference: {fileID: 0}
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.761709
+      value: 4.910001
       objectReference: {fileID: 0}
     - target: {fileID: 2782533568704441098, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7564,7 +7597,7 @@ PrefabInstance:
     - target: {fileID: 6251318767586999779, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 6749914388532724559, guid: ea93b478619e4864d9473cabc448c6d8, type: 3}
       propertyPath: m_Name
       value: Tower 3 - level 1
@@ -7850,7 +7883,7 @@ PrefabInstance:
     - target: {fileID: -736024596267445375, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: towerDeleteOptionsPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766574713}
     - target: {fileID: 2235243439210268830, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_Name
       value: Tower 2 - level 1
@@ -7873,11 +7906,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.3987
+      value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.731709
+      value: 2.88
       objectReference: {fileID: 0}
     - target: {fileID: 5712725490553097662, guid: 92b2511abc333454987fd86c7c8e5ae1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9143,6 +9176,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4110758068375310, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 858386654881705771, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       propertyPath: m_text
       value: Level 5
@@ -9171,6 +9208,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 75024329}
+    - target: {fileID: 2752027949324830745, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3017919462413162981, guid: c3c280952d79e334e8d3cc193a41493c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
