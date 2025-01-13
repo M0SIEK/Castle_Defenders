@@ -212,7 +212,7 @@ public class WavesController : MonoBehaviour
     {
         if (goldCounterText != null)
         {
-            goldCounterText.text = "Gold: " + gold;
+            goldCounterText.text = gold.ToString();
             Debug.Log($"Gold counter updated to: {gold}");
         }
         else
@@ -225,7 +225,7 @@ public class WavesController : MonoBehaviour
     {
         if (gemsCounterText != null)
         {
-            gemsCounterText.text = "Gems: " + gems;
+            goldCounterText.text = gems.ToString();
             Debug.Log($"Gems counter updated to: {gems}");
         }
         else
