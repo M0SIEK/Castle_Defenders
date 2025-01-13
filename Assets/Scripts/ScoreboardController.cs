@@ -68,6 +68,7 @@ public class ScoreboardController : MonoBehaviour
             scoreboard.scores[minScoreIndex] = newScore;
         }
         WriteToJsonFile(scoreboard);
+        scoreboardTableContent = GetScoreboardTableContent(scoreboard.scores);
     }
 
     private void SetActiveLevelScoreboard()

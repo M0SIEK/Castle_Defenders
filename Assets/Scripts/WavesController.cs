@@ -36,7 +36,6 @@ public class WavesController : MonoBehaviour
     public TextMeshProUGUI enemiesLeftText;
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI scoreText; // Dodaj referencję do TextMeshPro dla punktów
-    public TextMeshProUGUI scoreboardTableText; // Referencja do ScoreboardTableText
     public Button summonNextWaveButton;
     public TextMeshProUGUI goldCounterText; // Licznik złota
     public int gold = 0; // Ilość złota
@@ -51,6 +50,11 @@ public class WavesController : MonoBehaviour
     private int goblinLVL2CurrentWaveNumber;
     private int mushroomLVL1CurrentWaveNumber;
     private int score = 0; // Zmienna do przechowywania wyniku
+
+    public int Score
+    {
+        get { return score; }
+    }
 
     private const float skeletonLVL1NumberFactor = 0.2f;
     private const float skeletonLVL2NumberFactor = 0.1f;
@@ -135,21 +139,6 @@ public class WavesController : MonoBehaviour
             UpdateScoreText();
             UpdateGoldCounter();
             Debug.Log($"Enemy defeated! Enemies left: {enemyNumberInWave}, Score: {score}, Gold: {gold}");
-        }
-
-        if (enemyNumberInWave <= 0 && currentWave >= numberOfWaves)
-        {
-            Debug.Log("All waves cleared!");
-
-            // Aktualizuj ScoreboardTableText
-            if (scoreboardTableText != null)
-            {
-                scoreboardTableText.text = $"1. {score}"; // Zapisz wynik jako pierwszy rekord
-            }
-            else
-            {
-                Debug.LogError("ScoreboardTableText is not assigned in the inspector!");
-            }
         }
     }
 

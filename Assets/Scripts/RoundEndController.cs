@@ -44,6 +44,7 @@ public class RoundEndController : MonoBehaviour
     {
         if (wavesController.GetGameStarted() && wavesController.enemyNumberInWave <= 0 && wavesController.currentWave == wavesController.numberOfWaves)
         {
+            scoreboardController.AddNewScore(wavesController.Score);
             ShowWinScreen();
         }
     }
