@@ -225,7 +225,7 @@ public class WavesController : MonoBehaviour
     {
         if (gemsCounterText != null)
         {
-            goldCounterText.text = gems.ToString();
+            gemsCounterText.text = gems.ToString();
             Debug.Log($"Gems counter updated to: {gems}");
         }
         else
