@@ -80,6 +80,14 @@ public class Ability : MonoBehaviour
             Debug.Log("Ability area placement canceled at: " + abilityAreaInstance.transform.position); // Informacja o anulowaniu
             isPlacingAbilityArea = false;
             Destroy(abilityAreaInstance);
+
+            // Dodanie 1 gema przy anulowaniu umiejêtnoœci
+            if (wavesController != null)
+            {
+                wavesController.gems += 1; // Zwiêksz liczbê gemów
+                wavesController.UpdateGemsCounter(); // Aktualizuj licznik w UI
+                Debug.Log("1 gem added for canceling the ability.");
+            }
         }
     }
 
