@@ -258,6 +258,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 678754068012235777, guid: 9a219bc6580b40e47b354797d3063873, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -127
+      objectReference: {fileID: 0}
+    - target: {fileID: 748394748456075998, guid: 9a219bc6580b40e47b354797d3063873, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -155.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692286647482600228, guid: 9a219bc6580b40e47b354797d3063873, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d4d95a0be90e3114e914d920b3d0fb3b, type: 3}
+    - target: {fileID: 6171969840183873359, guid: 9a219bc6580b40e47b354797d3063873, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -101.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6257308283236213198, guid: 9a219bc6580b40e47b354797d3063873, type: 3}
       propertyPath: m_Name
       value: MainMenu
