@@ -6593,11 +6593,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonLVL1InitialNumber: 5
-  skeletonLVL2InitialNumber: 1
+  skeletonLVL2InitialNumber: 2
   goblinLVL1InitialNumber: 5
-  goblinLVL2InitialNumber: 1
+  goblinLVL2InitialNumber: 2
   mushroomLVL1InitialNumber: 1
-  numberOfWaves: 15
+  numberOfWaves: 12
   timeBetweenWavesInSeconds: 30
   enableSkeletonLVL1: 1
   enableSkeletonLVL2: 1
