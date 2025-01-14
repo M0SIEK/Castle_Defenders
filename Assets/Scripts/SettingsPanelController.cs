@@ -56,10 +56,14 @@ public class SettingsPanelController : MonoBehaviour
         settingsPanel.SetActive(false);
         SettingsPanelActive = false;
 
-        // Zak³adaj¹c, ¿e masz odniesienie do HitPointsBarController w tym skrypcie, np. hitPointsBar
+        // Reset wartoœci paska ¿ycia
         if (hitPointsBar != null)
         {
-            hitPointsBar.UpdateHitPointsBar(1000f, 1000f); // Ustawienie pe³nych hitpoints
+            // Resetuje wartoœæ hit points przed za³adowaniem sceny
+            EnemyController.playerHitPoints = 1000; // Przywrócenie pe³nych punktów ¿ycia
+            hitPointsBar.UpdateHitPointsBar(EnemyController.playerHitPoints, 1000);
+
+            Debug.Log($"Restarting round. Current hit points bar value: {EnemyController.playerHitPoints}");
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
