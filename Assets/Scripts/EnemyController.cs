@@ -52,16 +52,6 @@ public class EnemyController : MonoBehaviour
         this.transform.position = (direction == Direction.right || direction == Direction.left)
             ? new Vector3(this.transform.position.x, this.transform.position.y + randTranslation, this.transform.position.z)
             : new Vector3(this.transform.position.x + randTranslation, this.transform.position.y, this.transform.position.z);
-
-        // Debug: Wyświetl początkową wartość paska życia gracza
-        if (playerHitPointsBarController != null)
-        {
-            Debug.Log($"Initial HitPointsBar value: {playerHitPointsBarController.slider.value * 1000} / 1000");
-        }
-        else
-        {
-            Debug.LogWarning("PlayerHitPointsBarController is not assigned.");
-        }
     }
 
 

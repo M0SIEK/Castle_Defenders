@@ -88,14 +88,7 @@ public class RoundEndController : MonoBehaviour
             // Resetuje wartoœæ hit points przed za³adowaniem sceny
             EnemyController.playerHitPoints = 1000; // Przywrócenie pe³nych punktów ¿ycia
             hitPointsBar.UpdateHitPointsBar(EnemyController.playerHitPoints, 1000);
-
-            Debug.Log($"Restarting round. Current hit points bar value: {EnemyController.playerHitPoints}");
         }
-        else
-        {
-            Debug.LogWarning("HitPointsBarController is not assigned.");
-        }
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Prze³adowanie sceny
     }
 

@@ -5729,6 +5729,7 @@ MonoBehaviour:
   soundToggle: {fileID: 7336447264518389362}
   musicToggle: {fileID: 7082077733929763637}
   wavesController: {fileID: 0}
+  hitPointsBar: {fileID: 5044130905298697624}
   musicSource2: {fileID: 0}
 --- !u!1 &6222395113593425843
 GameObject:

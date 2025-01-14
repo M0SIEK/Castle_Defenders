@@ -62,11 +62,9 @@ public class SettingsPanelController : MonoBehaviour
             // Resetuje wartoœæ hit points przed za³adowaniem sceny
             EnemyController.playerHitPoints = 1000; // Przywrócenie pe³nych punktów ¿ycia
             hitPointsBar.UpdateHitPointsBar(EnemyController.playerHitPoints, 1000);
-
-            Debug.Log($"Restarting round. Current hit points bar value: {EnemyController.playerHitPoints}");
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Prze³adowanie sceny
     }
 
     public void LoadScene(string sceneName)
