@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
     private bool isDead = false;
     private WavesController wavesController;
     private HitPointsBarController playerHitPointsBarController;
-    private static float playerHitPoints = 1000;
+    public static float playerHitPoints = 1000;
 
     void Start()
     {

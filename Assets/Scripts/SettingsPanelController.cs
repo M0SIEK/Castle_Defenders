@@ -10,6 +10,7 @@ public class SettingsPanelController : MonoBehaviour
     public Toggle soundToggle;
     public Toggle musicToggle;
     public GameObject wavesController;
+    public HitPointsBarController hitPointsBar;
     public AudioSource musicSource2;
     public static bool SettingsPanelActive { get; internal set; } = false;
 
@@ -54,6 +55,12 @@ public class SettingsPanelController : MonoBehaviour
         // Wy³¹cz panel ustawieñ przed restartem
         settingsPanel.SetActive(false);
         SettingsPanelActive = false;
+
+        // Zak³adaj¹c, ¿e masz odniesienie do HitPointsBarController w tym skrypcie, np. hitPointsBar
+        if (hitPointsBar != null)
+        {
+            hitPointsBar.UpdateHitPointsBar(1000f, 1000f); // Ustawienie pe³nych hitpoints
+        }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
